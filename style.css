@@ -62,39 +62,45 @@ body{
 
 /* frosting top scallops */
 .frosting{position:absolute; top:34px; width:230px; height:40px; display:flex; gap:8px; justify-content:center; z-index:6}
-.scallop{width:44px; height:40px; border-radius:50%; background: linear-gradient(180deg, #fffafc, #ffe1eb);
-  box-shadow: inset 0 -6px 8px rgba(255, 150, 170, 0.2);
-  transform: translateY(6px);}
+.scallop {
+  width: 44px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff6fa 0%, #ffd6e0 100%);
+  box-shadow: inset 0 -5px 8px rgba(255, 150, 170, 0.2);
+  transform: translateY(6px);
+}
+
 
 /* Layers (friendly pastel look) */
-.cake-layer{
+.cake-layer {
   width: 240px;
   height: 44px;
   border-radius: 20px;
-  background: linear-gradient(180deg, var(--cake-icing), var(--cake-body));
-  box-shadow: 0 8px 30px rgba(255, 150, 170, 0.4);
-  position:relative;
-  margin-bottom:10px;
-  border: 2px solid rgba(255,150,170,0.12);
+  background: linear-gradient(180deg, #ffc0cb 0%, #ff8fa3 100%);
+  box-shadow: 0 10px 25px rgba(255, 120, 140, 0.35);
+  position: relative;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 120, 140, 0.25);
+  z-index: 10;
 }
 
-/* offsets for stacked look */
-.cake-layer.top{width:200px; height:36px; margin-bottom:6px; border-radius:16px}
-.cake-layer.middle{width:220px; height:40px; border-radius:18px}
-.cake-layer.base{width:250px; height:52px; border-radius:20px;}
+/* stacked look */
+.cake-layer.top { width: 200px; height: 36px; margin-bottom: 8px; }
+.cake-layer.middle { width: 220px; height: 40px; }
+.cake-layer.base { width: 250px; height: 52px; border-radius: 22px; }
 
-/* subtle icing drip on base */
-.cake-layer.base::before{
-  content:"";
-  position:absolute;
-  top:-10px;
-  left:12px;
-  width:220px;
-  height:14px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,245,247,0.6));
+/* add subtle icing shine on base */
+.cake-layer.base::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  width: 220px;
+  height: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,245,247,0.6));
   border-radius: 12px;
-  filter: blur(0.2px);
-  opacity:0.95;
+  opacity: 0.95;
 }
 
 /* Candles */
