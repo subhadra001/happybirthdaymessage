@@ -8,8 +8,8 @@
   --shadow: 0 14px 40px rgba(20,12,18,0.07);
   --btn-bg: #ffd6df;
   --btn-text: #3b1f22;
-  --cake-icing: #ffdce5;
-  --cake-body: #ffb7c5;
+  --cake-icing: #ffd6e0;
+  --cake-body: #ffb6c1;
   --frost: #fffafc;
 }
 
@@ -71,7 +71,7 @@ body{
   width: 240px;
   height: 44px;
   border-radius: 20px;
-  background: linear-gradient(180deg, #ffe0ea, #ffb7c5);
+  background: linear-gradient(180deg, var(--cake-icing), var(--cake-body));
   box-shadow: 0 8px 30px rgba(255, 150, 170, 0.4);
   position:relative;
   margin-bottom:10px;
