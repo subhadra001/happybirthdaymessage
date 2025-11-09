@@ -4,15 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Happy Birthday Bobo 🎂</title>
+
+  <!-- Cursive + system fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="stage">
-    <div class="card">
-      <div class="sparkles" aria-hidden="true"></div>
+    <div class="card" aria-live="polite">
+      <div class="bg-glow" aria-hidden="true"></div>
 
-      <div class="cake-wrap">
-        <div class="cake">
+      <div class="cake-wrap" aria-hidden="false">
+        <div class="cake" id="cake">
+          <!-- frosting top with scallop -->
+          <div class="frosting">
+            <div class="scallop s1"></div><div class="scallop s2"></div><div class="scallop s3"></div><div class="scallop s4"></div>
+          </div>
+
           <div class="cake-layer top"></div>
           <div class="cake-layer middle"></div>
           <div class="cake-layer base"></div>
@@ -25,13 +34,16 @@
         </div>
       </div>
 
-      <h1 class="message">happy birthday bobo, I love you!</h1>
+      <h1 class="message">happy birthday bobo, <span class="love">I love you!</span></h1>
+
+      <p class="subtle">Click <strong>Light &amp; Play</strong> to light the candles & play a soft piano tune.</p>
 
       <div class="controls">
         <button id="lightBtn" class="btn">Light &amp; Play</button>
         <button id="replayBtn" class="btn ghost" aria-hidden="true">Replay Music</button>
       </div>
 
+      <div class="sparkles" aria-hidden="true"></div>
     </div>
   </main>
 
@@ -40,3 +52,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
