@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Bobo 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="stage">
+    <div class="card">
+      <div class="sparkles" aria-hidden="true"></div>
+
+      <div class="cake-wrap">
+        <div class="cake">
+          <div class="cake-layer top"></div>
+          <div class="cake-layer middle"></div>
+          <div class="cake-layer base"></div>
+
+          <div class="candles" id="candles">
+            <div class="candle" data-delay="0"><span class="wick"></span><span class="flame"></span></div>
+            <div class="candle" data-delay="120"><span class="wick"></span><span class="flame"></span></div>
+            <div class="candle" data-delay="240"><span class="wick"></span><span class="flame"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="message">happy birthday bobo, I love you!</h1>
+
+      <div class="controls">
+        <button id="lightBtn" class="btn">Light &amp; Play</button>
+        <button id="replayBtn" class="btn ghost" aria-hidden="true">Replay Music</button>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="confetti-layer" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
