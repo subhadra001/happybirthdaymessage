@@ -59,7 +59,7 @@ body{
 
 /* cake container */
 .cake-wrap{display:flex; align-items:center; justify-content:center; margin:6px 0 10px; z-index: 20; position:relative}
-.cake{position:relative;  z-index: 10;
+.cake{position:relative;  z-index: 15;
       opacity: 1;
       width:300px; height:200px; 
       display:flex; align-items:flex-end; 
@@ -79,35 +79,49 @@ body{
 
 
 /* Layers (friendly pastel look) */
+/* Cake layers in pastel blue */
 .cake-layer {
   width: 240px;
   height: 44px;
   border-radius: 20px;
-  background: linear-gradient(180deg, #ffc0cb 0%, #ff8fa3 100%);
-  box-shadow: 0 10px 25px rgba(255, 120, 140, 0.35);
+  background: linear-gradient(180deg, #cce7ff, #a5d8ff);
+  box-shadow: 0 8px 30px rgba(120, 170, 255, 0.4);
   position: relative;
-  margin-bottom: 12px;
-  border: 1px solid rgba(255, 150, 170, 0.25);
-  z-index: 10;
+  margin-bottom: 10px;
+  border: 2px solid rgba(120, 170, 255, 0.2);
 }
 
-/* stacked look */
-.cake-layer.top { width: 200px; height: 36px; margin-bottom: 8px; }
-.cake-layer.middle { width: 220px; height: 40px; }
-.cake-layer.base { width: 250px; height: 52px; border-radius: 22px; }
+/* offsets for stacked look */
+.cake-layer.top {
+  width: 200px;
+  height: 36px;
+  margin-bottom: 6px;
+  border-radius: 16px;
+}
+.cake-layer.middle {
+  width: 220px;
+  height: 40px;
+  border-radius: 18px;
+}
+.cake-layer.base {
+  width: 250px;
+  height: 52px;
+  border-radius: 20px;
+}
 
-/* add subtle icing shine on base */
+/* subtle icing drip on base */
 .cake-layer.base::before {
   content: "";
   position: absolute;
   top: -10px;
-  left: 14px;
+  left: 12px;
   width: 220px;
-  height: 16px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,245,247,0.6));
+  height: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(240,245,255,0.7));
   border-radius: 12px;
   opacity: 0.95;
 }
+
 
 /* Candles */
 .candles{
