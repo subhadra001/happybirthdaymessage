@@ -1,0 +1,182 @@
+:root{
+  --bg1: #fff6f8;
+  --bg2: #fffaf2;
+  --accent: #ffd1dc;
+  --muted: #9b8f99;
+  --cake-outline: #f0aeb6;
+  --cake-fill: #fff;
+  --card-bg: rgba(255,255,255,0.75);
+  --shadow: 0 8px 30px rgba(15,10,20,0.06);
+  --btn-bg: #ffd1dc;
+  --btn-text: #4b2b2f;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(circle at 20% 10%, #fff6fb 0%, transparent 20%),
+              linear-gradient(135deg,var(--bg1),var(--bg2));
+  color: #302532;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Card */
+.card{
+  width: min(560px, 92vw);
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 36px 28px;
+  box-shadow: var(--shadow);
+  text-align:center;
+  position:relative;
+  overflow:visible;
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+/* Sparkles top */
+.sparkles{
+  position:absolute;
+  left: 10%;
+  top: -24px;
+  width: 80%;
+  height: 40px;
+  background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.9) 3px, transparent 4px);
+  opacity:0.25;
+  filter: blur(6px);
+}
+
+/* Cake */
+.cake-wrap{display:flex; align-items:center; justify-content:center; margin:6px 0 18px}
+.cake{position:relative; width:260px; height:180px; display:flex; align-items:flex-end; justify-content:center;}
+
+/* Layers (minimal line-style) */
+.cake-layer{
+  width: 220px;
+  height: 38px;
+  border-radius: 14px;
+  border: 3px solid var(--cake-outline);
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  position:relative;
+  margin-bottom:10px;
+}
+
+/* slight offsets for stacked look */
+.cake-layer.top{width:190px; height:34px; margin-bottom:2px}
+.cake-layer.middle{width:210px; height:36px;}
+.cake-layer.base{width:230px; height:46px;}
+
+/* Candles (simple lines) */
+.candles{
+  position:absolute;
+  top:-34px;
+  display:flex;
+  gap:18px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.candle{
+  width:8px;
+  height:34px;
+  background: linear-gradient(180deg, #fff 0%, #fff0 100%);
+  border:3px solid #ffd9e0;
+  border-radius:3px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  position:relative;
+  transform-origin:center bottom;
+}
+
+/* wick */
+.candle .wick{
+  width:2px;
+  height:8px;
+  background:#5b3b3f;
+  margin-top:6px;
+  border-radius:1px;
+}
+
+/* flame */
+.candle .flame{
+  position:absolute;
+  top:-14px;
+  width:12px;
+  height:18px;
+  border-radius:10px;
+  background: radial-gradient(circle at 40% 30%, #fff1 0%, transparent 40%),
+              linear-gradient(180deg, #fff7b6 0%, #ffd07c 35%, #ff8c7a 100%);
+  transform-origin:center bottom;
+  opacity:0;
+  filter:drop-shadow(0 2px 6px rgba(255,140,120,0.28));
+}
+
+/* lit state toggles the flame and small flicker animation */
+.candle.lit .flame{
+  opacity:1;
+  animation: flicker 420ms infinite;
+}
+@keyframes flicker{
+  0%{transform: translateY(0) scaleY(1) rotate(0deg); opacity:1}
+  50%{transform: translateY(-2px) scaleY(0.95) rotate(-2deg); opacity:0.95}
+  100%{transform: translateY(0) scaleY(1) rotate(2deg); opacity:1}
+}
+
+/* message */
+.message{
+  font-size: clamp(18px, 3.4vw, 22px);
+  margin: 14px 0 18px;
+  color: #5b3b3f;
+  letter-spacing: 0.2px;
+  text-transform: lowercase;
+  font-weight:600;
+  opacity:0;
+  transform: translateY(8px);
+  transition: all 600ms cubic-bezier(.2,.9,.3,1);
+}
+
+/* reveal message when lit */
+.card.lit .message{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* controls */
+.controls{display:flex; gap:12px; justify-content:center; margin-top:4px}
+.btn{
+  background:var(--btn-bg);
+  color:var(--btn-text);
+  border:0;
+  padding:10px 16px;
+  border-radius:12px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow: 0 6px 14px rgba(255,200,210,0.14);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn:active{transform:translateY(2px)}
+.btn.ghost{background:transparent; border:1px solid rgba(80,50,60,0.06); color:var(--muted); box-shadow:none; font-weight:500;}
+
+/* confetti hearts layer */
+#confetti-layer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1200;
+}
+
+/* subtle responsive tweaks */
+@media (max-width:420px){
+  .card{padding:24px}
+  .cake{width:210px;height:150px}
+  .candles{gap:12px}
+}
