@@ -58,7 +58,12 @@ body{
 
 /* cake container */
 .cake-wrap{display:flex; align-items:center; justify-content:center; margin:6px 0 10px; z-index: 20; position:relative}
-.cake{position:relative; width:300px; height:200px; display:flex; align-items:flex-end; justify-content:center; outline: 2px dashed rgba(255, 120, 150, 0.4);}
+.cake{position:relative;  z-index: 10;
+      opacity: 1;
+      width:300px; height:200px; 
+      display:flex; align-items:flex-end; 
+      justify-content:center; 
+      outline: 2px dashed rgba(255, 120, 150, 0.4);}
 
 /* frosting top scallops */
 .frosting{position:absolute; top:34px; width:230px; height:40px; display:flex; gap:8px; justify-content:center; z-index:6}
