@@ -8,8 +8,8 @@
   --shadow: 0 14px 40px rgba(20,12,18,0.07);
   --btn-bg: #ffd6df;
   --btn-text: #3b1f22;
-  --cake-icing: #ffeef1;
-  --cake-body: #fff;
+  --cake-icing: #ffdce5;
+  --cake-body: #ffb7c5;
   --frost: #fffafc;
 }
 
@@ -58,7 +58,7 @@ body{
 
 /* cake container */
 .cake-wrap{display:flex; align-items:center; justify-content:center; margin:6px 0 10px; z-index: 20; position:relative}
-.cake{position:relative; width:300px; height:200px; display:flex; align-items:flex-end; justify-content:center; outline: 2px dashed hotpink; }
+.cake{position:relative; width:300px; height:200px; display:flex; align-items:flex-end; justify-content:center;}
 
 /* frosting top scallops */
 .frosting{position:absolute; top:34px; width:230px; height:40px; display:flex; gap:8px; justify-content:center; z-index:6}
