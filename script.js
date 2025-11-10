@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const candles = document.querySelectorAll(".candle");
   const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
+  const cuteGif = document.getElementById("cuteGif");
+setTimeout(() => {
+  cuteGif.classList.add("active");
+}, 800);
+
 
   // 🩷 Allow Chrome to unlock audio
   function enableAudio() {
