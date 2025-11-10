@@ -1,15 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, #cce7ff, #e6f7ff);
+  background: linear-gradient(to bottom, #fff6f8, #ffeef5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   font-family: "Poppins", sans-serif;
-  position: relative;
 }
 
 /* ❤️ Floating Up Animation */
@@ -85,64 +84,71 @@ body {
 /* Cake Container */
 .cake {
   position: relative;
-  width: 200px;
-  height: 180px;
-  margin-bottom: 40px;
-  background: none;
-  transition: box-shadow 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: float 3s ease-in-out infinite;
 }
 
-/* 🎂 Cake Layers (3-tier) */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* 🎂 Cake Layers (3-tier) with horizontal stripes */
 .layer {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 16px;
-  border: 2px solid #ffd1dc;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8);
-  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  margin: 4px 0;
+  box-shadow: 0 4px 10px rgba(255, 150, 180, 0.2);
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.25) 4px,
+    transparent 4px,
+    transparent 8px
+  ); /* soft horizontal frosting lines */
 }
 
-/* ✨ Vertical white frosting stripe */
-.layer::before {
+/* Add creamy horizontal texture per layer */
+.layer::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: 12px;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255,255,255,0.5));
-  border-radius: 6px;
-  transform: translateX(-50%);
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
-  z-index: 6;
-  opacity: 0.9;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.4) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: soft-light;
 }
 
 /* Top tier */
 .layer-top {
-  top: 0px;
   width: 160px;
   height: 50px;
-  background: #ffe4ec;
+  background: linear-gradient(to bottom, #ffe4ec, #ffcde1);
   z-index: 5;
 }
 
 /* Middle tier */
 .layer-middle {
-  top: 60px;
   width: 200px;
   height: 55px;
-  background: #ffd6e8;
+  background: linear-gradient(to bottom, #ffd6e8, #ffbedc);
   z-index: 4;
 }
 
 /* Bottom tier */
 .layer-bottom {
-  top: 125px;
   width: 240px;
   height: 60px;
-  background: #ffb6c1;
+  background: linear-gradient(to bottom, #ffb6c1, #ffa7b9);
   z-index: 3;
 }
 
@@ -158,6 +164,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(255, 182, 193, 0.25);
 }
+
 
 /* 🧁 Cream Layers */
 .cream {
