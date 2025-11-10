@@ -45,21 +45,27 @@ body{
 
 .bg-glow{
   position:absolute;
-  left:50%;
-  top:28%;
+  inset: 0;
   transform:translateX(-50%);
-  width:420px;
-  height:200px;
-  background: radial-gradient(ellipse at center, rgba(255,180,200,0.22), transparent 40%);
+  background: radial-gradient(circle at center, #cce7ff 0%, #f0f8ff 100%);
   filter: blur(24px);
-  pointer-events:none;
   opacity: 0.25 ;
-  z-index: 5 ;
+  z-index: 1 ;
 }
 
 /* cake container */
-.cake-wrap{display:flex; align-items:center; justify-content:center; margin:6px 0 10px; z-index:5; position:relative}
-.cake{position:relative; width:300px; height:200px; display:flex; align-items:flex-end; justify-content:center;}
+.cake-wrap{display:flex; align-items:center; 
+           justify-content:center; 
+           margin: 30px 0 20px; 
+           z-index:10; 
+           position:relative}
+
+.cake{position:relative; width:300px; height:200px; 
+      display:flex; align-items:flex-end; 
+      justify-content:center;
+      z-index: 10;
+      opacity: 1;
+     }
 
 /* frosting top scallops */
 .frosting{position:absolute; 
@@ -131,9 +137,9 @@ body{
   position:relative;
   transform-origin:center bottom;
   padding:0;
-  box-shadow: 0 4px 10px rgba(255,140,160,0.08);
+  box-shadow: 0 4px 10px rgba(120, 170, 255, 0.25);
   overflow:visible;
-  border: 2px solid rgba(255,140,160,0.2);
+  border: 2px solid rgba(100, 160, 255, 0.25);
 }
 
 /* stripe design */
