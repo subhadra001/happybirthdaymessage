@@ -140,6 +140,23 @@ function spawnSparkles(n=6){
   }
 }
 
+// 🎉 Confetti burst when the song starts
+function throwConfetti() {
+  const confettiBurst = () => {
+    confetti({
+      particleCount: 180,       // more confetti
+      spread: 100,
+      startVelocity: 40,
+      origin: { y: 0.6 },
+      colors: ['#ffb3c6', '#ffe5ec', '#ff8fab', '#ffc8dd', '#ffd6a5']
+    });
+  };
+
+  confettiBurst();
+  setTimeout(confettiBurst, 300);
+  setTimeout(confettiBurst, 600);
+}
+
 
 // button handlers
 lightBtn.addEventListener('click', async () => {
@@ -148,12 +165,14 @@ lightBtn.addEventListener('click', async () => {
     await audioCtx.resume();
     if (!card.classList.contains('lit')) {
       lightCandles();
-      playMelody(); // 🔥 Play the melody here
+      playMelody();
+      throwConfetti(); // 🎊 add this line
     }
   } catch (e) {
     console.error("Audio context error:", e);
   }
 });
+
 
 
 // cake click to light
