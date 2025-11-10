@@ -350,17 +350,18 @@ body {
   transform: translateY(-2px);
 }
 
-/* 🐰 Cute GIF Entrance */
+/* 🐰 Cute GIF Entrance (fixed position for all screens) */
 .cute-gif {
   position: absolute;
-  right: -250px;
-  bottom: -10px;
+  right: -220px;
+  bottom: 40px; /* lifted higher to prevent cutting on mobile */
   width: 140px;
   opacity: 0;
   animation: none;
   z-index: 5;
 }
 
+/* 🧁 Entrance animation */
 @keyframes slideInGif {
   0% { transform: translateX(0); opacity: 0; }
   60% { transform: translateX(-80px); opacity: 1; }
@@ -370,3 +371,13 @@ body {
 .cute-gif.active {
   animation: slideInGif 2.5s ease-out forwards;
 }
+
+/* 📱 Mobile-friendly tweak — lift more on smaller screens */
+@media (max-width: 768px) {
+  .cute-gif {
+    bottom: 100px; /* sits nicely above the cake */
+    right: -180px; /* slightly closer for better framing */
+    width: 110px;  /* scales smaller to fit viewport */
+  }
+}
+
