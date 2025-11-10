@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
 
-
   // 🩷 Allow Chrome to unlock audio
   function enableAudio() {
     audio.play().then(() => {
@@ -38,18 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function lightCandles() {
     cake.classList.add("glow");
     showMessage();
-  
 
     candles.forEach((candle, i) => {
       setTimeout(() => candle.classList.add("lit"), i * 200);
     });
 
     // 🐰 Show cute GIF entrance
-const cuteGif = document.getElementById("cuteGif");
-setTimeout(() => {
-  cuteGif.classList.add("active");
-}, 800);
-
+    const cuteGif = document.getElementById("cuteGif");
+    setTimeout(() => {
+      cuteGif.classList.add("active");
+    }, 800);
 
     // Play music
     setTimeout(() => {
@@ -74,6 +71,12 @@ setTimeout(() => {
 
   // 💗 Button click
   lightBtn.addEventListener("click", () => {
+    // ✨ Fade out and hide the button
+    lightBtn.classList.add("fade-out");
+    setTimeout(() => {
+      lightBtn.style.display = "none";
+    }, 600); // match CSS transition
+
     enableAudio();
     if (!cake.classList.contains("glow")) {
       lightCandles();
