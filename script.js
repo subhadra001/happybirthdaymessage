@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("birthdayAudio");
   const cuteGif = document.getElementById("cuteGif");
 
-  // 🩷 Allow Chrome to unlock audio
   function enableAudio() {
     audio.play().then(() => {
       audio.pause();
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     message.classList.add("show-message");
   }
 
-  // 💖 Constant falling heart confetti
   function startHeartRain() {
     if (typeof confetti === "function") {
       setInterval(() => {
@@ -34,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 🎂 Light candles and burst confetti
   function lightCandles() {
     cake.classList.add("glow");
     showMessage();
@@ -43,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => candle.classList.add("lit"), i * 200);
     });
 
-    // 🐰 Show cute GIF entrance (AFTER button click)
+    // 🐰 Show cute GIF AFTER button click
     setTimeout(() => {
       cuteGif.classList.add("active");
-    }, 2500); // ⏱ delayed a bit more for smooth reveal
+    }, 2500);
 
     // Play music
     setTimeout(() => {
@@ -54,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       audio.play().catch(err => console.log("Audio play error:", err));
     }, 600);
 
-    // 💥 Confetti bursts 8 times
+    // 💥 Confetti bursts
     if (typeof confetti === "function") {
       for (let i = 0; i < 8; i++) {
         setTimeout(() => {
@@ -69,9 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 💗 Button click
   lightBtn.addEventListener("click", () => {
-    // ✨ Fade out and hide the button
     lightBtn.classList.add("fade-out");
     setTimeout(() => {
       lightBtn.style.display = "none";
@@ -84,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Prevent music pause
   document.addEventListener("click", (e) => {
     if (e.target.id !== "lightPlayBtn") {
       if (audio.paused) audio.play().catch(() => {});
