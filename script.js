@@ -140,11 +140,21 @@ function spawnSparkles(n=6){
   }
 }
 
+
 // button handlers
 lightBtn.addEventListener('click', async () => {
-  try{ initAudio(); await audioCtx.resume(); } catch(e){}
-  if(!card.classList.contains('lit')) lightCandles();
+  try {
+    initAudio();
+    await audioCtx.resume();
+    if (!card.classList.contains('lit')) {
+      lightCandles();
+      playMelody(); // 🔥 Play the melody here
+    }
+  } catch (e) {
+    console.error("Audio context error:", e);
+  }
 });
+
 
 // cake click to light
 document.querySelector('.cake').addEventListener('click', () => {
