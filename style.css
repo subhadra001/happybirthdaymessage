@@ -81,6 +81,23 @@ body {
   transform: translateY(0);
 }
 
+/* 🌸 Sub-message styling */
+.sub-message {
+  color: #ff5c8d;
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.show-sub-message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* Cake Container */
 .cake {
   position: relative;
