@@ -10,6 +10,26 @@
 </head>
 <body>
   <div class="container">
+    <!-- 💕 Floating hearts -->
+<div id="hearts"></div>
+
+<script>
+  const heartsContainer = document.getElementById("hearts");
+
+  // Generate random floating hearts continuously
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 6 + Math.random() * 4 + "s";
+    heart.style.fontSize = 16 + Math.random() * 16 + "px";
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+  }, 400);
+</script>
+
     <div class="cake-wrapper">
       <div class="cake" id="cake">
         <div class="candles">
