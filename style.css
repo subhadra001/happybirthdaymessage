@@ -395,6 +395,10 @@ body {
     transform: translateX(-80px);
     opacity: 1;
   }
+  80% {
+    transform: translateX(-200px);
+    opacity: 1;
+  }
   100% {
     transform: translateX(-260px);
     opacity: 1;
