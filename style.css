@@ -58,8 +58,12 @@ body{
 }
 
 /* cake container */
-.cake-wrap{display:flex; align-items:center; justify-content:center; margin:6px 0 10px; z-index: 20; position:relative}
-.cake{position:relative;  z-index: 15;
+.cake-wrap{display:flex; align-items:center;
+           justify-content:center;
+           margin:6px 0 10px;
+           z-index: 20; 
+           position:relative}
+.cake{position:absolute;  z-index: 15;
       opacity: 1;
       width:300px; height:200px; 
       display:flex; align-items:flex-end; 
