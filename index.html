@@ -28,6 +28,18 @@
 
     setTimeout(() => heart.remove(), 10000);
   }, 400);
+  
+  setInterval(() => {
+    const teddy = document.createElement("div");
+    teddy.classList.add("teddy");
+    teddy.innerHTML = "🍓";
+    teddy.style.left = Math.random() * 100 + "vw";
+    teddy.style.animationDuration = 7 + Math.random() * 4 + "s";
+    teddy.style.fontSize = 14 + Math.random() * 16 + "px";
+    teddyContainer.appendChild(teddy);
+
+    setTimeout(() => heart.remove(), 10000);
+  }, 400);
 </script>
 
     <div class="cake-wrapper">
