@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const candles = document.querySelectorAll(".candle");
   const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
+  const cuteGif = document.getElementById("cuteGif");
 
   // 🩷 Allow Chrome to unlock audio
   function enableAudio() {
@@ -42,11 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => candle.classList.add("lit"), i * 200);
     });
 
-    // 🐰 Show cute GIF entrance
-    const cuteGif = document.getElementById("cuteGif");
+    // 🐰 Show cute GIF entrance (AFTER button click)
     setTimeout(() => {
       cuteGif.classList.add("active");
-    }, 800);
+    }, 2500); // ⏱ delayed a bit more for smooth reveal
 
     // Play music
     setTimeout(() => {
@@ -75,12 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
     lightBtn.classList.add("fade-out");
     setTimeout(() => {
       lightBtn.style.display = "none";
-    }, 600); // match CSS transition
+    }, 600);
 
     enableAudio();
     if (!cake.classList.contains("glow")) {
       lightCandles();
-      startHeartRain(); // Start the falling heart confetti
+      startHeartRain();
     }
   });
 
