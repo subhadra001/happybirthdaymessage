@@ -8,24 +8,27 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="message">Happy Birthday!</h1>
+    <div class="cake-wrapper">
+      <h1 class="message" id="message">Happy Birthday!</h1>
 
-    <div class="cake">
-      <div class="candles">
-        <div class="candle"><div class="flame"></div></div>
-        <div class="candle"><div class="flame"></div></div>
-        <div class="candle"><div class="flame"></div></div>
+      <div class="cake">
+        <div class="candles">
+          <div class="candle"><div class="flame"></div></div>
+          <div class="candle"><div class="flame"></div></div>
+          <div class="candle"><div class="flame"></div></div>
+        </div>
+        <div class="layer layer-top"></div>
+        <div class="layer layer-middle"></div>
+        <div class="layer layer-bottom"></div>
+        <div class="plate"></div>
       </div>
-      <div class="layer layer-top"></div>
-      <div class="layer layer-middle"></div>
-      <div class="layer layer-bottom"></div>
-      <div class="plate"></div>
     </div>
 
     <button id="lightPlayBtn">🎵 Light & Play</button>
   </div>
 
-  <audio id="birthdayTune" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3e1a6ec3ab.mp3?filename=happy-birthday-to-you-soft-piano-14213.mp3"></audio>
+  <!-- ✅ Using a verified working MP3 link -->
+  <audio id="birthdayTune" preload="auto" src="https://cdn.pixabay.com/audio/2022/03/15/audio_3e1a6ec3ab.mp3"></audio>
 
   <canvas id="confettiCanvas"></canvas>
 
