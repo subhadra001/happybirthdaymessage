@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
 
-  // Enable Chrome audio
+  // 🩷 Allow Chrome to unlock audio
   function enableAudio() {
     audio.play().then(() => {
       audio.pause();
@@ -17,7 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
     message.classList.add("show-message");
   }
 
-  // 🎂 Light candles + play
+  // 💖 Constant falling heart confetti
+  function startHeartRain() {
+    if (typeof confetti === "function") {
+      setInterval(() => {
+        confetti({
+          particleCount: 4,
+          angle: 90,
+          spread: 60,
+          origin: { x: Math.random(), y: 0 },
+          shapes: ["heart"],
+          colors: ["#ff5c8d", "#ff8fab", "#ffc8dd", "#ffd6a5", "#ffe5ec"],
+        });
+      }, 300);
+    }
+  }
+
+  // 🎂 Light candles and burst confetti
   function lightCandles() {
     cake.classList.add("glow");
     showMessage();
@@ -26,33 +42,37 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => candle.classList.add("lit"), i * 200);
     });
 
-    // Play song
+    // Play music
     setTimeout(() => {
       audio.currentTime = 0;
       audio.play().catch(err => console.log("Audio play error:", err));
     }, 600);
 
-    // Confetti burst
+    // 💥 Confetti bursts 8 times
     if (typeof confetti === "function") {
-      const burst = () => confetti({
-        particleCount: 200,
-        spread: 100,
-        origin: { y: 0.6 },
-        colors: ["#ffb3c6", "#ffe5ec", "#ff8fab", "#ffc8dd", "#ffd6a5"]
-      });
-      burst();
-      setTimeout(burst, 400);
-      setTimeout(burst, 800);
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+          confetti({
+            particleCount: 180,
+            spread: 120,
+            origin: { y: 0.6 },
+            colors: ["#ffb3c6", "#ffe5ec", "#ff8fab", "#ffc8dd", "#ffd6a5"],
+          });
+        }, i * 300);
+      }
     }
   }
 
   // 💗 Button click
   lightBtn.addEventListener("click", () => {
     enableAudio();
-    if (!cake.classList.contains("glow")) lightCandles();
+    if (!cake.classList.contains("glow")) {
+      lightCandles();
+      startHeartRain(); // Start the falling heart confetti
+    }
   });
 
-  // Prevent music from pausing accidentally
+  // Prevent music pause
   document.addEventListener("click", (e) => {
     if (e.target.id !== "lightPlayBtn") {
       if (audio.paused) audio.play().catch(() => {});
