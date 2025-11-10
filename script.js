@@ -3,9 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const cake = document.getElementById("cake");
   const candles = document.querySelectorAll(".candle");
   const message = document.getElementById("message");
+  const subMessage = document.getElementById("subMessage");
   const audio = document.getElementById("birthdayAudio");
   const cuteGif = document.getElementById("cuteGif");
 
+  // 🎀 Cute GIF entrance
+  setTimeout(() => {
+    cuteGif.classList.add("active");
+  }, 800);
+
+  // 🩷 Allow Chrome to unlock audio
   function enableAudio() {
     audio.play().then(() => {
       audio.pause();
@@ -13,75 +20,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }).catch(() => {});
   }
 
-  function showMessage() {
-    message.classList.add("show-message");
-  }
+  enableAudio();
 
-  function startHeartRain() {
-    if (typeof confetti === "function") {
-      setInterval(() => {
-        confetti({
-          particleCount: 4,
-          angle: 90,
-          spread: 60,
-          origin: { x: Math.random(), y: 0 },
-          shapes: ["heart"],
-          colors: ["#ff5c8d", "#ff8fab", "#ffc8dd", "#ffd6a5", "#ffe5ec"],
-        });
-      }, 300);
-    }
-  }
-
-  function lightCandles() {
-    cake.classList.add("glow");
-    showMessage();
-
-    candles.forEach((candle, i) => {
-      setTimeout(() => candle.classList.add("lit"), i * 200);
-    });
-
-    // 🐰 Show cute GIF AFTER button click
-    setTimeout(() => {
-      cuteGif.classList.add("active");
-    }, 2500);
-
-    // Play music
-    setTimeout(() => {
-      audio.currentTime = 0;
-      audio.play().catch(err => console.log("Audio play error:", err));
-    }, 600);
-
-    // 💥 Confetti bursts
-    if (typeof confetti === "function") {
-      for (let i = 0; i < 8; i++) {
-        setTimeout(() => {
-          confetti({
-            particleCount: 180,
-            spread: 120,
-            origin: { y: 0.6 },
-            colors: ["#ffb3c6", "#ffe5ec", "#ff8fab", "#ffc8dd", "#ffd6a5"],
-          });
-        }, i * 300);
-      }
-    }
-  }
-
+  // 🕯️ When button clicked
   lightBtn.addEventListener("click", () => {
-    lightBtn.classList.add("fade-out");
+    // Light candles
+    candles.forEach(candle => candle.classList.add("lit"));
+
+    // Play song
+    audio.currentTime = 0;
+    audio.play();
+
+    // Show main message
     setTimeout(() => {
-      lightBtn.style.display = "none";
-    }, 600);
+      message.classList.add("show-message");
+    }, 1000);
 
-    enableAudio();
-    if (!cake.classList.contains("glow")) {
-      lightCandles();
-      startHeartRain();
-    }
-  });
+    // Show sub-message a bit later ✨
+    setTimeout(() => {
+      subMessage.classList.add("show-sub");
+    }, 2000);
 
-  document.addEventListener("click", (e) => {
-    if (e.target.id !== "lightPlayBtn") {
-      if (audio.paused) audio.play().catch(() => {});
-    }
+    // Confetti celebration 🎉
+    setTimeout(() => {
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+    }, 1500);
+
+    // Hide the button & lock audio
+    lightBtn.style.display = "none";
   });
 });
