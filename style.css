@@ -9,34 +9,63 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: "Poppins", sans-serif;
+  position: relative;
 }
+
+/* ❤️ Constant falling heart confetti */
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.6;
+  }
+}
+
+.heart {
+  position: absolute;
+  color: #ff5c8d;
+  font-size: 20px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+/* Randomized heart sizes and speeds */
+.heart:nth-child(2n) { animation-duration: 6s; font-size: 18px; color: #ff2e63; }
+.heart:nth-child(3n) { animation-duration: 7s; font-size: 24px; color: #e6005c; }
+.heart:nth-child(4n) { animation-duration: 8s; font-size: 22px; color: #ff4f81; }
 
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;       /* horizontal centering */
-  justify-content: center;   /* vertical centering */
-  gap: 28px;                 /* space between cake, message, button */
-  height: 100vh;             /* fill viewport so vertical centering works */
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  height: 100vh;
   box-sizing: border-box;
   padding: 20px;
   text-align: center;
+  position: relative;
+  z-index: 2; /* ensure cake & message appear above confetti */
 }
 
-/* cake-wrapper participates in the flow (no absolute offsets) */
+/* cake-wrapper */
 .cake-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 18px;
-  margin: 0;                 /* remove stray top/side margins */
+  margin: 0;
   padding: 0;
 }
 
+/* 🎀 Updated message color */
 .message {
-  color: #ff6699;
+  color: #b3003c; /* dark cherry red */
   font-size: 2.8rem;
-  text-shadow: 2px 2px 8px rgba(255, 182, 193, 0.6);
+  text-shadow: 2px 2px 8px rgba(179, 0, 60, 0.4);
   margin-top: 20px;
   font-family: 'Great Vibes', cursive;
   opacity: 0;
@@ -49,19 +78,18 @@ body {
   transform: translateY(0);
 }
 
-/* 🎂 Cake Base */
+/* Cake */
 .cake {
   position: relative;
   width: 200px;
   height: 180px;
   margin-bottom: 40px;
-  background: none; /* ✅ no background to avoid white block */
+  background: none;
   transition: box-shadow 0.6s ease;
 }
 
-/* 🎀 Cake Layers (soft pastel look) */
 .layer {
-  position: absolute; /* keep absolute for stacking, but cake centers as block */
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 220px;
@@ -71,18 +99,10 @@ body {
   box-shadow: inset 0 0 10px rgba(255,255,255,0.8);
 }
 
-/* layer vertical positions */
-.layer-top  { top: 6px;  background: #ffe4ec; }
-.layer-middle{ top: 66px; background: #ffd6e8; }
-.layer-bottom{ top: 126px; background: #ffb6c1; }
+.layer-top { top: 6px; background: #ffe4ec; }
+.layer-middle { top: 66px; background: #ffd6e8; }
+.layer-bottom { top: 126px; background: #ffb6c1; }
 
-/* ✨ Glow effect — soft pink aura, no white patch 
-.glow {
-  box-shadow: 0 0 50px 15px rgba(255, 182, 193, 0.55);
-  background: none !important;
-}
-*/
-/* 🍽 Plate — made translucent */
 .plate {
   position: absolute;
   left: 50%;
