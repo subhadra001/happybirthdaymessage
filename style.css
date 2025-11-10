@@ -76,19 +76,7 @@ body {
 
 
 
-.glow {
-  background: transparent ;
-  animation: cakeGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes cakeGlow {
-  from {
-    box-shadow: 0 0 30px 10px rgba(255, 182, 193, 0.4);
-  }
-  to {
-    box-shadow: 0 0 45px 20px rgba(255, 105, 180, 0.6);
-  }
-}
+.glow { box-shadow: 0 0 40px rgba(255, 182, 193, 0.6); }
 
 
 /* 🩶 Plate (now soft and translucent) */
