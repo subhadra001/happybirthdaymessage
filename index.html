@@ -1,70 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Bobo 🎂</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floating Cake Animation</title>
+<style>
+  body {
+    background-color: #cce7ff; /* light pastel blue */
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Brush Script MT", cursive;
+    color: #333;
+  }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  .cake {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .message {
+    font-size: 28px;
+    font-style: italic;
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .play-button {
+    margin-top: 20px;
+    background-color: white;
+    color: #333;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
+  }
+
+  .play-button:hover {
+    background-color: #f2f2f2;
+    transform: scale(1.05);
+  }
+
+  .floating {
+    position: absolute;
+    font-size: 32px;
+    animation: floatUpDown 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @keyframes floatUpDown {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-20px); opacity: 0.8; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .heart {
+    top: 20%;
+    left: 25%;
+    animation-delay: 0s;
+  }
+
+  .strawberry {
+    top: 25%;
+    right: 25%;
+    animation-delay: 2s;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
+  <div class="cake">🎂</div>
+  <div class="message">Happy Birthday with Love ❤️ 🍓</div>
+  <button class="play-button">▶ Play</button>
 
-    <!-- Floating hearts & strawberries container -->
-    <div id="hearts"></div>
-
-    <div class="cake-wrapper">
-      <div class="cake" id="cake">
-        <div class="candles">
-          <div class="candle"></div>
-          <div class="candle"></div>
-          <div class="candle"></div>
-        </div>
-        <div class="cream"></div>
-        <div class="layer layer-top"></div>
-        <div class="layer layer-middle"></div>
-        <div class="layer layer-bottom"></div>
-        <div class="plate"></div>
-      </div>
-
-      <h1 class="message" id="message">happy birthday!</h1>
-      <button id="lightPlayBtn">💗 light the candles 💗</button>
-    </div>
-  </div>
-
-  <!-- Confetti library -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-
-  <!-- Audio -->
-  <audio id="birthdayAudio" preload="auto" loop>
-    <source src="happy-birthday-to-you-370804.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Floating hearts & strawberries -->
-  <script>
-    const heartsContainer = document.getElementById("hearts");
-    const symbols = ["💗", "🍓", "🍰"];
-
-    setInterval(() => {
-      const emoji = document.createElement("div");
-      emoji.classList.add("heart");
-      emoji.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-
-      emoji.style.left = Math.random() * 100 + "vw";
-      emoji.style.animationDuration = 6 + Math.random() * 4 + "s";
-      emoji.style.fontSize = 18 + Math.random() * 20 + "px";
-
-      heartsContainer.appendChild(emoji);
-
-      setTimeout(() => emoji.remove(), 10000);
-    }, 600);
-  </script>
-
-  <!-- Main script -->
-  <script src="script.js"></script>
+  <div class="floating heart">❤️</div>
+  <div class="floating strawberry">🍓</div>
 </body>
 </html>
