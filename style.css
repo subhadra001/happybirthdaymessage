@@ -38,7 +38,7 @@ body {
   font-size: 2.8rem;
   text-shadow: 2px 2px 8px rgba(255, 182, 193, 0.6);
   margin-top: 20px;
-  font-family: "Great Vibes", "Pacifico", cursive;
+  font-family: "Great Vibes", "Brush Script MT", cursive;
   opacity: 0;
   transform: translateY(15px);
   transition: opacity 1.2s ease, transform 1.2s ease;
