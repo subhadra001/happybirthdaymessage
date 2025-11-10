@@ -5,10 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
   const cuteGif = document.getElementById("cuteGif");
-setTimeout(() => {
-  cuteGif.classList.add("active");
-}, 800);
-
 
   // 🩷 Allow Chrome to unlock audio
   function enableAudio() {
@@ -18,31 +14,15 @@ setTimeout(() => {
     }).catch(() => {});
   }
 
+  // 🎉 Show message and activate GIF
   function showMessage() {
-  message.classList.add("show-message");
-  setTimeout(() => {
-    document.getElementById("subMessage").classList.add("show-sub-message");
-  }, 1000); // appears 1 second later for a nice reveal
-}
-
-
-  // 💖 Constant falling heart confetti
-  function startHeartRain() {
-    if (typeof confetti === "function") {
-      setInterval(() => {
-        confetti({
-          particleCount: 4,
-          angle: 90,
-          spread: 60,
-          origin: { x: Math.random(), y: 0 },
-          shapes: ["heart"],
-          colors: ["#ff5c8d", "#ff8fab", "#ffc8dd", "#ffd6a5", "#ffe5ec"],
-        });
-      }, 300);
-    }
+    message.classList.add("show-message");
+    setTimeout(() => {
+      cuteGif.classList.add("active");
+    }, 800); // show GIF slightly after message appears
   }
 
-  // 🎂 Light candles and burst confetti
+  // 🕯️ Light candles + trigger everything
   function lightCandles() {
     cake.classList.add("glow");
     showMessage();
@@ -51,52 +31,39 @@ setTimeout(() => {
       setTimeout(() => candle.classList.add("lit"), i * 200);
     });
 
-    // 🐰 Show cute GIF entrance
-    const cuteGif = document.getElementById("cuteGif");
-    setTimeout(() => {
-      cuteGif.classList.add("active");
-    }, 800);
-
-    // Play music
+    // 🎵 Play audio
     setTimeout(() => {
       audio.currentTime = 0;
       audio.play().catch(err => console.log("Audio play error:", err));
     }, 600);
 
-    // 💥 Confetti bursts 8 times
+    // 🎊 Confetti
     if (typeof confetti === "function") {
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 6; i++) {
         setTimeout(() => {
           confetti({
-            particleCount: 180,
-            spread: 120,
+            particleCount: 150,
+            spread: 100,
             origin: { y: 0.6 },
-            colors: ["#ffb3c6", "#ffe5ec", "#ff8fab", "#ffc8dd", "#ffd6a5"],
+            colors: ["#ffb3c6", "#ffe5ec", "#ff8fab", "#ffc8dd", "#ffd6a5"]
           });
         }, i * 300);
       }
     }
+
+    // 🌸 Fade out the button
+    lightBtn.style.transition = "opacity 1s ease, transform 1s ease";
+    lightBtn.style.opacity = "0";
+    lightBtn.style.transform = "scale(0.9)";
+    setTimeout(() => lightBtn.style.display = "none", 1000);
   }
 
-  // 💗 Button click
+  // 💗 Button click handler
   lightBtn.addEventListener("click", () => {
-    // ✨ Fade out and hide the button
-    lightBtn.classList.add("fade-out");
-    setTimeout(() => {
-      lightBtn.style.display = "none";
-    }, 600); // match CSS transition
-
     enableAudio();
     if (!cake.classList.contains("glow")) {
       lightCandles();
-      startHeartRain(); // Start the falling heart confetti
-    }
-  });
-
-  // Prevent music pause
-  document.addEventListener("click", (e) => {
-    if (e.target.id !== "lightPlayBtn") {
-      if (audio.paused) audio.play().catch(() => {});
     }
   });
 });
+
