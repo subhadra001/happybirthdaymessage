@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
 
-  // 🩷 Allow Chrome to unlock audio
+  // Allow Chrome to unlock audio
   function enableAudio() {
     audio.play().then(() => {
       audio.pause();
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     message.classList.add("show-message");
   }
 
-  // 💖 Constant falling heart confetti
+  // Constant falling heart confetti
   function startHeartRain() {
     if (typeof confetti === "function") {
       setInterval(() => {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 🎂 Light candles and burst confetti
+  // Light candles and burst confetti
   function lightCandles() {
     cake.classList.add("glow");
     showMessage();
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => candle.classList.add("lit"), i * 200);
     });
 
-    // 🐰 Show cute GIF entrance
+    // Show cute GIF
     const cuteGif = document.getElementById("cuteGif");
     setTimeout(() => {
       cuteGif.classList.add("active");
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       audio.play().catch(err => console.log("Audio play error:", err));
     }, 600);
 
-    // 💥 Confetti bursts 8 times
+    // Confetti bursts
     if (typeof confetti === "function") {
       for (let i = 0; i < 8; i++) {
         setTimeout(() => {
@@ -69,26 +69,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 💗 Button click
+  // Button click
   lightBtn.addEventListener("click", () => {
-    // ✨ Fade out and hide the button
-    lightBtn.classList.add("fade-out");
-    setTimeout(() => {
-      lightBtn.style.display = "none";
-    }, 600); // match CSS transition
-
     enableAudio();
     if (!cake.classList.contains("glow")) {
       lightCandles();
-      startHeartRain(); // Start the falling heart confetti
+      startHeartRain();
     }
   });
 
-  // Prevent music pause
+  // Prevent music from pausing
   document.addEventListener("click", (e) => {
     if (e.target.id !== "lightPlayBtn") {
       if (audio.paused) audio.play().catch(() => {});
     }
   });
 });
-
