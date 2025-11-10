@@ -53,7 +53,8 @@ body{
   background: radial-gradient(ellipse at center, rgba(255,180,200,0.22), transparent 40%);
   filter: blur(24px);
   pointer-events:none;
-  z-index:0;
+  opacity: 0.25 ;
+  z-index: 5 ;
 }
 
 /* cake container */
@@ -61,7 +62,11 @@ body{
 .cake{position:relative; width:300px; height:200px; display:flex; align-items:flex-end; justify-content:center;}
 
 /* frosting top scallops */
-.frosting{position:absolute; top:34px; width:230px; height:40px; display:flex; gap:8px; justify-content:center; z-index:6}
+.frosting{position:absolute; 
+          top:34px; width:230px; height:40px; 
+          display:flex; gap:8px; justify-content:center;
+          z-index:25}
+
 .scallop {
   width: 44px;
   height: 40px;
@@ -82,6 +87,7 @@ body{
   position:relative;
   margin-bottom:10px;
   border: 2px solid rgba(255,150,170,0.12);
+  z-index: 22
 }
 
 /* offsets for stacked look */
@@ -111,7 +117,7 @@ body{
   gap:18px;
   left:50%;
   transform:translateX(-50%);
-  z-index:9;
+  z-index:30;
 }
 
 .candle{
