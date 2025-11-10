@@ -208,17 +208,28 @@ body {
   transform: scale(0.9);
 }
 
-/* 🐰 Cute GIF */
-.cute-gif {
-  position: absolute;
-  right: -220px;
-  bottom: 130px;
-  width: 180px;
-  opacity: 0;
-  animation: none;
-  z-index: 6;
+#lightButton {
+  transition: opacity 0.5s ease;
 }
 
+#lightButton.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* 🐰 Cute GIF Entrance */
+.cute-gif {
+  position: absolute;
+  right: -250px;
+  bottom: 130px;
+  width: 140px;
+  opacity: 0;
+  animation: none;
+  z-index: 5;
+}
+
+/* 🩷 Entrance animation */
 @keyframes slideInGif {
   0% { transform: translateX(0); opacity: 0; }
   60% { transform: translateX(-80px); opacity: 1; }
@@ -229,12 +240,29 @@ body {
   animation: slideInGif 2.5s ease-out forwards;
 }
 
-/* 📱 Responsive */
-@media (max-width: 600px) {
+/* 📱 Mobile-friendly adjustments */
+@media (max-width: 1024px) {
   .cute-gif {
-    bottom: 60px;  /* lower it a bit more for phones */
-    right: -130px;
-    width: 160px;
+    right: -180px;   /* closer to cake */
+    bottom: 160px;   /* lifted higher */
+    width: 120px;    /* slightly smaller */
   }
 }
+
+@media (max-width: 768px) {
+  .cute-gif {
+    right: -140px;
+    bottom: 200px;   /* lifted more for phone screens */
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cute-gif {
+    right: -120px;
+    bottom: 220px;   /* even higher so it stays visible */
+    width: 90px;
+  }
+}
+
 
