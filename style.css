@@ -1,4 +1,16 @@
-/* container: full-screen flex stack, centers everything */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #fff6fb, #e6f7ff);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -11,7 +23,6 @@
   text-align: center;
 }
 
-/* cake-wrapper participates in the flow (no absolute offsets) */
 .cake-wrapper {
   display: flex;
   flex-direction: column;
@@ -21,7 +32,23 @@
   padding: 0;
 }
 
-/* cake should not use top/left absolute offsets for layout */
+.message {
+  color: #ff6699;
+  font-size: 2.8rem;
+  text-shadow: 2px 2px 8px rgba(255, 182, 193, 0.6);
+  margin-top: 20px;
+  font-family: "Pacifico", cursive;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.show-message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🎂 Cake Base */
 .cake {
   position: relative;
   width: 220px;     /* a touch wider for visual balance */
@@ -31,8 +58,7 @@
   transition: box-shadow 0.6s ease;
   display: block;
 }
-
-/* layers are positioned relative to the cake, but cake itself is centered */
+/* 🎀 Cake Layers (soft pastel look) */
 .layer {
   position: absolute; /* keep absolute for stacking, but cake centers as block */
   left: 50%;
@@ -49,7 +75,13 @@
 .layer-middle{ top: 66px; background: #ffd6e8; }
 .layer-bottom{ top: 126px; background: #ffb6c1; }
 
-/* plate: centered under cake */
+/* ✨ Glow effect — soft pink aura, no white patch */
+.glow {
+  box-shadow: 0 0 50px 15px rgba(255, 182, 193, 0.55);
+  background: none !important;
+}
+
+/* 🍽 Plate — made translucent */
 .plate {
   position: absolute;
   left: 50%;
@@ -85,16 +117,40 @@
   transform: none;
   transition: none;
 }
+/* 🔥 Candle Flame */
+.candle.lit::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 10px;
+  height: 15px;
+  background: radial-gradient(circle, #fffacd, #ffb347, #ff8c00);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: flicker 0.25s infinite alternate;
+}
 
-/* button centered in the stack */
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+  100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+}
+
+/* 💖 Light & Play Button */
 #lightPlayBtn {
   background-color: #ffd1dc;
   border: none;
-  padding: 12px 30px;
-  border-radius: 28px;
-  font-size: 1.15rem;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-size: 1.2rem;
   color: #ff5c8d;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(255, 192, 203, 0.25);
+  transition: 0.3s;
+  box-shadow: 2px 2px 10px rgba(255, 192, 203, 0.6);
+  margin-top: 20px;
 }
-#lightPlayBtn:hover { transform: translateY(-2px); }
+
+#lightPlayBtn:hover {
+  background-color: #ffe4ec;
+  transform: scale(1.05);
+}
