@@ -14,6 +14,7 @@ body {
   position: relative;
 }
 
+/* 🎉 Birthday Message */
 #message {
   font-size: 2.4rem;
   color: #fff;
@@ -21,11 +22,22 @@ body {
   opacity: 0;
   transform: translateY(-40px);
   transition: opacity 1s ease, transform 1s ease;
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#message .subtext {
+  display: block;
+  font-size: 1.2rem;
+  color: #ffeef6;
+  text-shadow: 1px 1px 6px rgba(255, 200, 220, 0.8);
 }
 
 .show-message {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(-50%, 0);
 }
 
 /* 🎂 Cake */
@@ -35,7 +47,7 @@ body {
   flex-direction: column;
   align-items: center;
   animation: float 3s ease-in-out infinite;
-  margin-top: 20px;
+  margin-top: 80px;
 }
 
 /* ✨ Cake Layers with horizontal stripes */
@@ -174,9 +186,16 @@ body {
   transform: scale(1.05);
 }
 
+#lightPlayBtn.fade-out {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
 /* 🐰 Cute GIF */
 #cuteGif {
-  width: 180px;
+  width: 220px;
   margin-top: 20px;
   opacity: 0;
   transform: scale(0.8);
