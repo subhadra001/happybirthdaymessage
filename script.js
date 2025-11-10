@@ -1,6 +1,7 @@
 const btn = document.getElementById("lightPlayBtn");
 const audio = document.getElementById("birthdayTune");
 const flames = document.querySelectorAll(".flame");
+const message = document.getElementById("message");
 const canvas = document.getElementById("confettiCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -52,11 +53,25 @@ function animateConfetti() {
   requestAnimationFrame(animateConfetti);
 }
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", async () => {
+  // Light flames
   flames.forEach(f => f.style.opacity = "1");
-  audio.play();
+
+  // Show message
+  message.classList.add("show-message");
+
+  // Play sound (ensure browser allows it after user gesture)
+  try {
+    await audio.play();
+  } catch (e) {
+    console.error("Autoplay blocked:", e);
+  }
+
+  // Start confetti
   createConfetti();
   animateConfetti();
+
+  // Disable button
   btn.disabled = true;
   btn.textContent = "🎉 Enjoy!";
 });
