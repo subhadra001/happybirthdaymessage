@@ -156,121 +156,57 @@ body {
 
 /* 🧁 Cream Layers — cute, wobbly, pastel dripping look */
 
-/* Top cream (on top of smallest tier) */
+/* 🧁 Perfectly aligned cream layers for each tier */
+
+/* Top cream (for smallest top tier) */
 .cream {
   position: absolute;
+  top: -8px;
   left: 50%;
   transform: translateX(-50%);
-  top: -12px;
-  width: 160px; /* same as top tier */
-  height: 30px;
-  background: radial-gradient(circle at 50% 40%, #fff 40%, #f8f8f8 80%);
-  border-radius: 50% 50% 30% 30% / 50% 50% 30% 30%;
-  box-shadow: 0 3px 8px rgba(255, 192, 203, 0.28), inset 0 -2px 4px rgba(255, 182, 193, 0.16);
-  z-index: 10; /* keep on top of cake layers */
-  animation: wobble 2.8s ease-in-out infinite;
+  width: 180px; /* slightly wider to match cake */
+  height: 35px;
+  background: linear-gradient(180deg, #fffafc, #ffe8ef);
+  border-radius: 80px 80px 50px 50px / 60px 60px 40px 40px;
+  box-shadow: 0 3px 8px rgba(255, 182, 193, 0.3);
+  z-index: 10;
+  animation: wobble 3s ease-in-out infinite;
 }
 
-.cream::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background:
-    radial-gradient(circle at 16% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 36% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 56% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 76% 100%, #fff 30%, transparent 30%);
-  background-size: 25% 100%;
-  background-repeat: no-repeat;
-  opacity: 0.98;
-  border-radius: 0 0 8px 8px;
-}
-
-/* Middle cream */
+/* Middle cream (matches middle layer width) */
 .middle-cream {
   position: absolute;
+  top: 65px; /* sits just above middle tier */
   left: 50%;
   transform: translateX(-50%);
-  top: 52px; /* sits right between top & middle tiers */
-  width: 200px; /* same as middle tier */
-  height: 14px;
-  background: linear-gradient(180deg, #fff5f7, #ffe4ec);
+  width: 220px;
+  height: 20px;
+  background: linear-gradient(180deg, #fff5f7, #ffe0eb);
   border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(255, 182, 193, 0.38);
-  z-index: 9; /* above middle tier */
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.3);
+  z-index: 9;
   animation: wobble 3.4s ease-in-out infinite;
 }
 
-.middle-cream::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 8px;
-  background:
-    radial-gradient(circle at 12% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 32% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 52% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 72% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 92% 100%, #fff 30%, transparent 30%);
-  background-size: 20% 100%;
-  background-repeat: no-repeat;
-  opacity: 0.95;
-  border-radius: 0 0 8px 8px;
-  animation: drip 2.5s ease-in-out infinite alternate;
-}
-
-/* Bottom cream */
+/* Bottom cream (for largest tier) */
 .bottom-cream {
   position: absolute;
+  top: 135px;
   left: 50%;
   transform: translateX(-50%);
-  top: 117px; /* between middle & bottom tiers */
-  width: 240px; /* same as bottom tier */
-  height: 16px;
-  background: linear-gradient(180deg, #fff5f7, #ffe4ec);
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(255, 182, 193, 0.38);
-  z-index: 8; /* above bottom tier */
+  width: 260px;
+  height: 20px;
+  background: linear-gradient(180deg, #fff5f7, #ffe0eb);
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.3);
+  z-index: 8;
   animation: wobble 3.8s ease-in-out infinite;
 }
 
-.bottom-cream::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 10px;
-  background:
-    radial-gradient(circle at 10% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 30% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 50% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 70% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 90% 100%, #fff 30%, transparent 30%);
-  background-size: 20% 100%;
-  background-repeat: no-repeat;
-  opacity: 0.95;
-  border-radius: 0 0 10px 10px;
-  animation: drip 3s ease-in-out infinite alternate;
-}
-
-/* 🎀 Cute, subtle wobble animation for soft cartoon look */
+/* gentle wobble animation for all cream tiers */
 @keyframes wobble {
   0%, 100% { transform: translateX(-50%) rotate(0deg); }
-  25% { transform: translateX(-50%) rotate(0.8deg); }
-  50% { transform: translateX(-50%) rotate(-0.8deg); }
-  75% { transform: translateX(-50%) rotate(0.5deg); }
-}
-
-/* 🍯 Gentle drip motion */
-@keyframes drip {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(3px); }
+  50% { transform: translateX(-50%) rotate(0.5deg); }
 }
 
 
