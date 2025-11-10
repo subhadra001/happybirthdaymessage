@@ -114,30 +114,61 @@ body {
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-/* Top tier – smallest */
+/* 🎂 Striped Cake Layers */
 .layer-top {
   top: 0px;
   width: 160px;
   height: 50px;
-  background: #ffe4ec;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffe4ec 0px,
+    #ffe4ec 15px,
+    #fff0f5 15px,
+    #fff0f5 30px,
+    #ffd1dc 30px,
+    #ffd1dc 45px
+  );
+  border: 2px solid #ffd1dc;
+  border-radius: 16px;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.7);
   z-index: 5;
 }
 
-/* Middle tier – medium */
 .layer-middle {
   top: 60px;
   width: 200px;
   height: 55px;
-  background: #ffd6e8;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffd6e8 0px,
+    #ffd6e8 20px,
+    #fff0f8 20px,
+    #fff0f8 40px,
+    #ffe0ed 40px,
+    #ffe0ed 60px
+  );
+  border: 2px solid #ffccda;
+  border-radius: 16px;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.7);
   z-index: 4;
 }
 
-/* Bottom tier – largest */
 .layer-bottom {
   top: 125px;
   width: 240px;
   height: 60px;
-  background: #ffb6c1;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffb6c1 0px,
+    #ffb6c1 25px,
+    #ffe4ec 25px,
+    #ffe4ec 50px,
+    #ffd1dc 50px,
+    #ffd1dc 75px
+  );
+  border: 2px solid #ffb6c1;
+  border-radius: 16px;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.7);
   z-index: 3;
 }
 
@@ -295,10 +326,17 @@ body {
   gap: 20px;
 }
 
+/* 🕯 Striped Candles (Candy Look) */
 .candle {
   width: 12px;
   height: 40px;
-  background: #ffd1d9;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffb6c1 0px,
+    #ffb6c1 6px,
+    #fff 6px,
+    #fff 12px
+  );
   border-radius: 4px;
   position: relative;
   box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.7);
