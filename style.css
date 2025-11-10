@@ -155,59 +155,61 @@ body {
 }
 
 /* 🧁 Cream Layers — cute, wobbly, pastel dripping look */
+/* 🧁 Cream layers between cake tiers with wobble effect */
 
-/* 🧁 Perfectly aligned cream layers for each tier */
-
-/* Top cream (for smallest top tier) */
+/* Top cream — between top and middle tier */
 .cream {
   position: absolute;
-  top: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 180px; /* slightly wider to match cake */
-  height: 35px;
-  background: linear-gradient(180deg, #fffafc, #ffe8ef);
-  border-radius: 80px 80px 50px 50px / 60px 60px 40px 40px;
-  box-shadow: 0 3px 8px rgba(255, 182, 193, 0.3);
-  z-index: 10;
+  top: 60px; /* sits between top and middle layers */
+  width: 180px;
+  height: 18px;
+  background: linear-gradient(180deg, #fff7fa 0%, #ffe6ef 100%);
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.3);
+  z-index: 8; /* between top & middle */
   animation: wobble 3s ease-in-out infinite;
 }
 
-/* Middle cream (matches middle layer width) */
+/* Middle cream — between middle and bottom tier */
 .middle-cream {
   position: absolute;
-  top: 65px; /* sits just above middle tier */
   left: 50%;
   transform: translateX(-50%);
+  top: 130px; /* sits between middle & bottom */
   width: 220px;
   height: 20px;
-  background: linear-gradient(180deg, #fff5f7, #ffe0eb);
-  border-radius: 12px;
+  background: linear-gradient(180deg, #fff6f8 0%, #ffe2eb 100%);
+  border-radius: 20px;
   box-shadow: 0 2px 6px rgba(255, 182, 193, 0.3);
-  z-index: 9;
+  z-index: 7; /* between middle & bottom */
   animation: wobble 3.4s ease-in-out infinite;
 }
 
-/* Bottom cream (for largest tier) */
+/* Bottom cream — at base, slightly peeking */
 .bottom-cream {
   position: absolute;
-  top: 135px;
   left: 50%;
   transform: translateX(-50%);
+  top: 200px; /* bottom layer edge */
   width: 260px;
   height: 20px;
-  background: linear-gradient(180deg, #fff5f7, #ffe0eb);
-  border-radius: 14px;
+  background: linear-gradient(180deg, #fff5f7 0%, #ffd9e6 100%);
+  border-radius: 20px;
   box-shadow: 0 2px 6px rgba(255, 182, 193, 0.3);
-  z-index: 8;
+  z-index: 6;
   animation: wobble 3.8s ease-in-out infinite;
 }
 
-/* gentle wobble animation for all cream tiers */
+/* 🎀 Gentle wobble animation for all layers */
 @keyframes wobble {
   0%, 100% { transform: translateX(-50%) rotate(0deg); }
-  50% { transform: translateX(-50%) rotate(0.5deg); }
+  25% { transform: translateX(-50%) rotate(0.6deg); }
+  50% { transform: translateX(-50%) rotate(-0.6deg); }
+  75% { transform: translateX(-50%) rotate(0.4deg); }
 }
+
 
 
 
