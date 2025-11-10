@@ -43,59 +43,55 @@ body{
   border: 1px solid rgba(255,255,255,0.7);
 }
 
-.bg-glow{
-  position:relative;
-  left:50%;
-  top:28%;
-  transform:translateX(-50%);
-  width:420px;
-  height:200px;
-  background: radial-gradient(ellipse at center, rgba(255,180,200,0.22), transparent 40%);
+/* 🌸 Background glow (softened so cake is visible) */
+.bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, #cce7ff 0%, #f0f8ff 100%);
   filter: blur(24px);
   opacity: 0.35;
-  pointer-events:none;
-  z-index:1;
+  z-index: 1;
 }
 
-/* cake container */
-/* cake container */
+/* 🎂 Cake container */
 .cake-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 6px 0 10px;
-  z-index: 20;
+  margin: 30px 0 20px;
   position: relative;
+  z-index: 10;
 }
 
+/* 🩵 Cake body */
 .cake {
   position: relative;
-  z-index: 15;
-  opacity: 1;
-  width: 300px;
-  height: 200px;
+  width: 260px;
+  height: 180px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  z-index: 10;
+  opacity: 1;
 }
 
 /* Frosting top scallops */
 .frosting {
   position: absolute;
-  top: 28px;
-  width: 230px;
-  height: 40px;
+  top: 18px;
+  width: 200px;
+  height: 38px;
   display: flex;
-  gap: 8px;
   justify-content: center;
-  z-index: 6;
+  gap: 8px;
+  z-index: 20;
 }
 
 .scallop {
   width: 44px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(180deg, #e3f2ff 0%, #c8e6ff 100%);
+  background: linear-gradient(180deg, #e3f2ff 0%, #b3daff 100%);
   box-shadow: inset 0 -5px 8px rgba(120, 170, 255, 0.3);
   transform: translateY(6px);
 }
@@ -107,27 +103,27 @@ body{
   transform: translateX(-50%);
   border-radius: 20px;
   background: linear-gradient(180deg, #cce7ff, #a5d8ff);
-  box-shadow: 0 8px 30px rgba(120, 170, 255, 0.4);
-  border: 2px solid rgba(120, 170, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(120, 170, 255, 0.3);
+  border: 2px solid rgba(120, 170, 255, 0.25);
 }
 
 /* Stacked layers */
 .cake-layer.top {
-  width: 200px;
-  height: 36px;
+  width: 180px;
+  height: 30px;
   bottom: 100px;
 }
 
 .cake-layer.middle {
-  width: 220px;
-  height: 40px;
+  width: 200px;
+  height: 35px;
   bottom: 60px;
 }
 
 .cake-layer.base {
-  width: 250px;
-  height: 52px;
-  bottom: 10px;
+  width: 230px;
+  height: 45px;
+  bottom: 15px;
 }
 
 /* Icing drip effect */
@@ -136,24 +132,24 @@ body{
   position: absolute;
   top: -10px;
   left: 12px;
-  width: 220px;
-  height: 14px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(230, 240, 255, 0.8));
-  border-radius: 12px;
-  opacity: 0.95;
+  width: 200px;
+  height: 12px;
+  background: linear-gradient(180deg, #ffffff, #e8f4ff);
+  border-radius: 10px;
+  opacity: 0.9;
+  z-index: 5;
 }
 
 
-
-/* Candles */
-.candles{
-  position:absolute;
-  top:-28px;
-  display:flex;
-  gap:18px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:9;
+/* 🕯️ Candles */
+.candles {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+  z-index: 25;
 }
 
 .candle{
@@ -192,8 +188,7 @@ body{
   width:14px;
   height:20px;
   border-radius:10px;
-  background: radial-gradient(circle at 35% 35%, #fff9 0%, transparent 30%),
-              linear-gradient(180deg, #ffe8a8 0%, #ffb66b 38%, #ff7b63 100%);
+  background: radial-gradient(circle at 35% 35%, #fff9 0%, transparent 30%),linear-gradient(180deg, #ffe8a8 0%, #ffb66b 38%, #ff7b63 100%);
   transform-origin:center bottom;
   opacity:0;
   filter: drop-shadow(0 4px 10px rgba(255,130,130,0.18));
