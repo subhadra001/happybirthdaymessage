@@ -38,9 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function lightCandles() {
     cake.classList.add("glow");
     showMessage();
-    // 🐰 Make rabbit appear
-document.getElementById("rabbit").style.opacity = "1";
-
+  
 
     candles.forEach((candle, i) => {
       setTimeout(() => candle.classList.add("lit"), i * 200);
