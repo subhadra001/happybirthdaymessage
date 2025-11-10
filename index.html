@@ -17,29 +17,34 @@
   const heartsContainer = document.getElementById("hearts");
 
   // Generate random floating hearts continuously
+ <!-- 💕 Floating hearts + strawberries -->
+<div id="hearts"></div>
+
+<script>
+  const heartsContainer = document.getElementById("hearts");
+  const symbols = ["🍰 ", "🍓"];
+
   setInterval(() => {
     const heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.innerHTML = "🧸";
+    heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+
+    // start from bottom random X position
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 6 + Math.random() * 4 + "s";
-    heart.style.fontSize = 16 + Math.random() * 16 + "px";
+    heart.style.bottom = "0px";
+
+    // vary speed and size
+    const duration = 6 + Math.random() * 6;
+    heart.style.animationDuration = duration + "s";
+    heart.style.fontSize = 18 + Math.random() * 14 + "px";
+
     heartsContainer.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 10000);
-  }, 400);
-  
-  setInterval(() => {
-    const teddy = document.createElement("div");
-    teddy.classList.add("teddy");
-    teddy.innerHTML = "🍓";
-    teddy.style.left = Math.random() * 100 + "vw";
-    teddy.style.animationDuration = 7 + Math.random() * 4 + "s";
-    teddy.style.fontSize = 14 + Math.random() * 16 + "px";
-    teddyContainer.appendChild(teddy);
+    // remove after floating out
+    setTimeout(() => heart.remove(), duration * 1000);
+  }, 500);
+</script>
 
-    setTimeout(() => heart.remove(), 10000);
-  }, 400);
 </script>
 
     <div class="cake-wrapper">
