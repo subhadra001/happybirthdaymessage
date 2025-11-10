@@ -42,10 +42,10 @@ body {
   width: 200px;
   height: 180px;
   margin-bottom: 40px;
-  background: transparent ;  /* ensures no white box appears */
-  box-shadow: none;                    /* prevents faint background bloom */
+  background: none;
   transition: box-shadow 0.6s ease;
 }
+
 
 
 .layer {
