@@ -41,21 +41,21 @@ document.addEventListener("DOMContentLoaded", () => {
         colors: ["#ffb3c6", "#ffe5ec", "#ff8fab", "#ffc8dd", "#ffd6a5"]
       });
       burst();
-      setTimeout(burst, 300);
-      setTimeout(burst, 600);
+      setTimeout(burst, 400);
+      setTimeout(burst, 800);
     }
   }
 
-  // 💗 Click handler
+  // 💗 Button click
   lightBtn.addEventListener("click", () => {
     enableAudio();
     if (!cake.classList.contains("glow")) lightCandles();
   });
 
-  // 🍰 Click cake to trigger
-  cake.addEventListener("click", () => {
-    enableAudio();
-    if (!cake.classList.contains("glow")) lightCandles();
+  // Prevent music from pausing accidentally
+  document.addEventListener("click", (e) => {
+    if (e.target.id !== "lightPlayBtn") {
+      if (audio.paused) audio.play().catch(() => {});
+    }
   });
 });
-
