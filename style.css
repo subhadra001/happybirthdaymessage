@@ -125,6 +125,9 @@ body {
     transparent 4px,
     transparent 8px
   ); /* soft horizontal frosting lines */
+  radical-gradient(
+    circle at 30px 5px, #DBA0B2 30px, #8A6776 31px
+  );
 }
 
 /* Add creamy horizontal texture per layer */
