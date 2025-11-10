@@ -16,13 +16,12 @@
 <script>
   const heartsContainer = document.getElementById("hearts");
 
-  // Generate random floating hearts continuously
- 
+  <!-- Floating hearts and strawberries -->
 <div id="hearts"></div>
 
 <script>
   const heartsContainer = document.getElementById("hearts");
-  const symbols = ["🍰 ", "🍓"];
+  const symbols = ["💗", "🍓"]; // emojis you want to float
 
   setInterval(() => {
     const heart = document.createElement("div");
@@ -31,18 +30,21 @@
 
     // start from bottom random X position
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "0px";
+    heart.style.bottom = "-10px";
 
     // vary speed and size
-    const duration = 6 + Math.random() * 6;
+    const duration = 6 + Math.random() * 4;
     heart.style.animationDuration = duration + "s";
-    heart.style.fontSize = 18 + Math.random() * 14 + "px";
+    heart.style.fontSize = 20 + Math.random() * 20 + "px";
 
     heartsContainer.appendChild(heart);
 
     // remove after floating out
     setTimeout(() => heart.remove(), duration * 1000);
-  }, 500);
+  }, 600);
+</script>
+
+ 
 </script>
 
 </script>
@@ -73,9 +75,8 @@
     <source src="happy-birthday-to-you-370804.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Script -->
-  <div id="hearts"></div>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
