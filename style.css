@@ -73,12 +73,12 @@ body {
   background: #ffb6c1;
 }
 
-/* ✨ Glow effect — soft pink aura, no white patch */
+/* ✨ Glow effect — soft pink aura, no white patch 
 .glow {
   box-shadow: 0 0 50px 15px rgba(255, 182, 193, 0.55);
   background: none !important;
 }
-
+*/
 /* 🍽 Plate — made translucent */
 .plate {
   position: absolute;
