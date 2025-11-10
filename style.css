@@ -149,11 +149,11 @@ body{
   transform: translateX(-50%);
   display: flex;
   gap: 14px;
-  z-index: 25;
+  z-index: 10;
 }
 
 .candle{
-  width:12px;
+  width:10px;
   height:36px;
   background: linear-gradient(180deg,#fff,#fff0);
   border-radius:4px;
