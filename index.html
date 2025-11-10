@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cute Birthday Cake 🎂</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Cake</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1 id="message" class="hidden">
-      🎉 Happy Birthday! <br><span class="sub-message">Wish you well 💖</span>
-    </h1>
+    <h1 id="message">🎉 Happy Birthday 🎉</h1>
 
     <div class="cake" id="cake">
-      <div class="layer layer-top"></div>
-      <div class="cream top-cream"></div>
-
-      <div class="layer layer-middle"></div>
-      <div class="cream middle-cream"></div>
-
-      <div class="layer layer-bottom"></div>
-      <div class="cream bottom-cream"></div>
-
       <div class="candles">
-        <div class="candle"><div class="flame"></div></div>
-        <div class="candle"><div class="flame"></div></div>
-        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"></div>
+        <div class="candle"></div>
+        <div class="candle"></div>
       </div>
 
+      <div class="layer layer-top"></div>
+      <div class="layer layer-middle"></div>
+      <div class="layer layer-bottom"></div>
       <div class="plate"></div>
     </div>
 
-    <button id="lightPlayBtn">🎵 Light & Play</button>
-    <img id="cuteGif" class="cute-gif" src="https://media.tenor.com/EnwBYFZzRvIAAAAi/bunny-rabbit.gif" alt="Cute bunny" />
-    <audio id="birthdayAudio" src="https://cdn.pixabay.com/download/audio/2023/03/14/audio_19f4c93b7c.mp3?filename=birthday-happy-birthday-to-you-piano-14359.mp3"></audio>
+    <img id="cuteGif" src="cute.gif" alt="cute" class="hidden">
+
+    <button id="lightPlayBtn">💖 Light Candles 💖</button>
+
+    <audio id="birthdayAudio" src="happy.mp3"></audio>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
