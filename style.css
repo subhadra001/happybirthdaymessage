@@ -1,112 +1,44 @@
 body {
   margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #fff6f8, #ffeef5);
+  background: linear-gradient(180deg, #fff0f6 0%, #ffe8ef 100%);
+  font-family: "Comic Sans MS", "Poppins", cursive;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   overflow: hidden;
-  font-family: "Poppins", sans-serif;
 }
-
-/* ❤️ Floating Up Animation */
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-50vh) translateX(20px) rotate(15deg);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(-100vh) translateX(-20px) rotate(-15deg);
-    opacity: 0;
-  }
-}
-
-#hearts {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.heart {
-  position: absolute;
-  bottom: 0;
-  animation: floatUp linear forwards;
-  opacity: 0.9;
-  font-size: 20px;
-}
-
-.heart:nth-child(2n) { animation-duration: 7s; font-size: 22px; }
-.heart:nth-child(3n) { animation-duration: 9s; font-size: 18px; }
-.heart:nth-child(4n) { animation-duration: 11s; font-size: 26px; }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  height: 100vh;
-  box-sizing: border-box;
-  padding: 20px;
-  text-align: center;
   position: relative;
-  z-index: 2; /* ensure cake & message appear above confetti */
-}
-
-/* 🎀 Birthday Message */
-.message {
-  color: #691233;
-  font-size: 2.8rem;
-  text-shadow: 2px 2px 8px rgba(179, 0, 60, 0.4);
-  margin-top: 20px;
-  font-family: 'Great Vibes', cursive;
-  opacity: 0;
-  transform: translateY(15px);
   text-align: center;
-  z-index: 10;
-  transition: opacity 1.2s ease, transform 1.2s ease;
 }
-.message h1 {
+
+/* 🎉 Birthday Message */
+#message {
+  position: absolute;
+  top: -120px;
+  width: 100%;
+  color: #ff7ba3;
   font-size: 2rem;
-  color: #ff6f91;
-  margin-bottom: 8px;
-  text-shadow: 1px 1px 4px rgba(255, 150, 180, 0.3);
-}
-
-.show-message {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 🌸 Sub-message styling */
-.sub-message {
-  color: #AB0E38;
-  font-size: 1.3rem;
-  font-family: 'Poppins', sans-serif, cursive;
-  margin-top: 8px;
+  text-shadow: 0 3px 6px rgba(255, 130, 170, 0.4);
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
+  transform: translateY(-20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
-.show-sub-message {
+#message.show-message {
   opacity: 1;
   transform: translateY(0);
 }
 
+.sub-message {
+  display: block;
+  font-size: 1.2rem;
+  color: #ff9fb6;
+}
 
-/* 🎀 Cake Container */
+/* 🍰 Cake Floating Animation */
 .cake {
   position: relative;
   display: flex;
@@ -120,74 +52,126 @@ body {
   50% { transform: translateY(-6px); }
 }
 
-/* 🎂 Cake Layers (3-tier) */
+/* 🎂 Cake Layers */
 .layer {
+  border-radius: 12px;
   position: relative;
-  border-radius: 12px;
-  margin: 5px 0;
-  box-shadow: 0 4px 8px rgba(255, 160, 190, 0.25);
-  overflow: visible;
+  margin: 4px 0;
+  box-shadow: 0 4px 10px rgba(255, 150, 180, 0.2);
 }
 
-/* ✨ Frosted horizontal texture */
-.layer::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.25),
-    rgba(255, 255, 255, 0.25) 4px,
-    transparent 4px,
-    transparent 8px
-  );
-  border-radius: 12px;
-  pointer-events: none;
-  mix-blend-mode: soft-light;
-  z-index: 2;
-}
-
-/* 🍦 Creamy scalloped edge (neat half-circles) */
-.layer::before {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: radial-gradient(circle at 10px 10px, #fff 10px, transparent 11px);
-  background-size: 20px 20px;
-  background-repeat: repeat-x;
-  z-index: 3;
-  opacity: 0.95;
-}
-
-/* 🎂 Top tier */
 .layer-top {
   width: 160px;
   height: 50px;
-  background: linear-gradient(to bottom, #ffe4ec, #ffcde1);
-  z-index: 5;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffe4ec,
+    #ffe4ec 8px,
+    #ffcde1 8px,
+    #ffcde1 16px
+  );
 }
 
-/* 🎂 Middle tier */
 .layer-middle {
   width: 200px;
   height: 55px;
-  background: linear-gradient(to bottom, #ffd6e8, #ffbedc);
-  z-index: 4;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffd6e8,
+    #ffd6e8 8px,
+    #ffbedc 8px,
+    #ffbedc 16px
+  );
 }
 
-/* 🎂 Bottom tier */
 .layer-bottom {
   width: 240px;
   height: 60px;
-  background: linear-gradient(to bottom, #ffb6c1, #ffa7b9);
-  z-index: 3;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffb6c1,
+    #ffb6c1 8px,
+    #ffa7b9 8px,
+    #ffa7b9 16px
+  );
 }
 
+/* 🍦 Cream Layers (half-circle pattern) */
+.cream {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 18px;
+  background-color: #fff0f5;
+  border-radius: 0 0 10px 10px;
+  background-image: radial-gradient(circle at 10px 0, #fff 10px, transparent 11px);
+  background-size: 20px 100%;
+  background-repeat: repeat-x;
+}
 
-/* Plate */
+.top-cream {
+  top: 48px;
+  width: 160px;
+}
+
+.middle-cream {
+  top: 110px;
+  width: 200px;
+}
+
+.bottom-cream {
+  top: 175px;
+  width: 240px;
+}
+
+/* 🕯️ Candles */
+.candles {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  position: absolute;
+  top: -35px;
+}
+
+.candle {
+  width: 14px;
+  height: 40px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffd6e8,
+    #ffd6e8 6px,
+    #ffadc6 6px,
+    #ffadc6 12px
+  );
+  border-radius: 4px;
+  position: relative;
+}
+
+.flame {
+  width: 10px;
+  height: 16px;
+  background: radial-gradient(circle at 50% 50%, #ffeb3b, #ff9800 70%);
+  border-radius: 50%;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.candle.lit .flame {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  animation: flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+}
+
+/* 🍽️ Plate */
 .plate {
   position: absolute;
   left: 50%;
@@ -195,238 +179,62 @@ body {
   bottom: -24px;
   width: 260px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(255, 182, 193, 0.25);
 }
 
-
-/* 🧁 Cream Layers */
-.cream {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -12px;
-  width: 160px;
-  height: 32px;
-  background: linear-gradient(180deg, #fffafc 0%, #ffe8f0 90%);
-  border-radius: 50% 50% 40% 40% / 50% 50% 30% 30%;
-  box-shadow: 0 3px 8px rgba(255, 192, 203, 0.28),
-              inset 0 -3px 6px rgba(255, 182, 193, 0.18),
-              inset 0 2px 4px rgba(255, 255, 255, 0.9);
-  z-index: 10;
-  animation: wobble 2.8s ease-in-out infinite;
-}
-.cream::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 100%;
-  height: 14px;
-  background:
-    radial-gradient(circle at 10% 100%, #fff 35%, transparent 36%),
-    radial-gradient(circle at 30% 100%, #fff 40%, transparent 41%),
-    radial-gradient(circle at 50% 100%, #fff 35%, transparent 36%),
-    radial-gradient(circle at 70% 100%, #fff 38%, transparent 39%),
-    radial-gradient(circle at 90% 100%, #fff 34%, transparent 35%);
-  background-size: 20% 100%;
-  background-repeat: no-repeat;
-  opacity: 0.98;
-  border-radius: 0 0 10px 10px;
-  animation: drip 2.5s ease-in-out infinite alternate;
-}
-
-/* Middle Cream */
-.middle-cream {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 52px;
-  width: 200px;
-  height: 16px;
-  background: linear-gradient(180deg, #fff6fa 0%, #ffe4ec 100%);
-  border-radius: 20px;
-  box-shadow: 0 1px 6px rgba(255, 182, 193, 0.38),
-              inset 0 2px 4px rgba(255, 255, 255, 0.85);
-  z-index: 9;
-  animation: wobble 3.4s ease-in-out infinite;
-}
-.middle-cream::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 12px;
-  background:
-   radial-gradient(circle at 10% 100%, #fff 35%, transparent 36%),
-    radial-gradient(circle at 30% 100%, #fff 40%, transparent 41%),
-    radial-gradient(circle at 50% 100%, #fff 35%, transparent 36%),
-    radial-gradient(circle at 70% 100%, #fff 38%, transparent 39%),
-    radial-gradient(circle at 90% 100%, #fff 34%, transparent 35%);
-  background-size: 20% 100%;
-  background-repeat: no-repeat;
-  opacity: 0.95;
-  border-radius: 0 0 12px 12px;
-  animation: drip 2.8s ease-in-out infinite alternate;
-}
-
-/* Bottom Cream */
-.bottom-cream {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 117px;
-  width: 240px;
-  height: 18px;
-  background: linear-gradient(180deg, #fff7fa 0%, #ffdbe7 100%);
-  border-radius: 20px;
-  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.38),
-              inset 0 2px 4px rgba(255, 255, 255, 0.8);
-  z-index: 8;
-  animation: wobble 3.8s ease-in-out infinite;
-}
-.bottom-cream::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 14px;
-  background:
-    radial-gradient(circle at 10% 100%, #fff 35%, transparent 36%),
-    radial-gradient(circle at 30% 100%, #fff 40%, transparent 41%),
-    radial-gradient(circle at 50% 100%, #fff 35%, transparent 36%),
-    radial-gradient(circle at 70% 100%, #fff 38%, transparent 39%),
-    radial-gradient(circle at 90% 100%, #fff 34%, transparent 35%);
-  background-size: 20% 100%;
-  background-repeat: no-repeat;
-  opacity: 0.95;
-  border-radius: 0 0 12px 12px;
-  animation: drip 3.2s ease-in-out infinite alternate;
-}
-
-/* Animations */
-@keyframes wobble {
-  0%, 100% { transform: translateX(-50%) rotate(0deg); }
-  35% { transform: translateX(-50%) rotate(0.9deg); }
-  65% { transform: translateX(-50%) rotate(-0.9deg); }
-  85% { transform: translateX(-50%) rotate(0.6deg); }
-}
-
-@keyframes drip {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(4px); }
-}
-
-/* 🕯 Candles */
-.candles {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -38px;
-  display: flex;
-  gap: 20px;
-}
-
-/* 🎀 Striped Candles (pastel shades) */
-.candle {
-  width: 12px;
-  height: 40px;
-  border-radius: 4px;
-  position: relative;
-  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.7),
-              0 0 3px rgba(255, 192, 203, 0.5);
-}
-
-.candle:nth-child(1) {
-  background: repeating-linear-gradient(45deg, #ffb6c1, #ffb6c1 6px, #fff 6px, #fff 12px);
-}
-.candle:nth-child(2) {
-  background: repeating-linear-gradient(45deg, #ffe4ec, #ffe4ec 6px, #fff 6px, #fff 12px);
-}
-.candle:nth-child(3) {
-  background: repeating-linear-gradient(45deg, #ffd1d9, #ffd1d9 6px, #fff 6px, #fff 12px);
-}
-
-/* 🔥 Candle Flame */
-.candle.lit::after {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  width: 10px;
-  height: 15px;
-  background: radial-gradient(circle, #fffacd, #ffb347, #ff8c00);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  animation: flicker 0.25s infinite alternate;
-}
-
-@keyframes flicker {
-  0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
-  100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
-}
-
-/* 💖 Light & Play Button */
+/* ✨ Button */
 #lightPlayBtn {
-  background-color: #ffd1dc;
+  margin-top: 30px;
+  padding: 10px 20px;
   border: none;
-  padding: 12px 30px;
-  border-radius: 28px;
-  font-size: 1.15rem;
-  color: #ff5c8d;
+  background: #ffb3c6;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(255, 192, 203, 0.25);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  box-shadow: 0 3px 6px rgba(255, 150, 180, 0.3);
+  transition: transform 0.3s ease, opacity 0.5s ease;
 }
+
 #lightPlayBtn:hover {
-  transform: translateY(-2px);
+  transform: scale(1.1);
 }
+
 #lightPlayBtn.fade-out {
   opacity: 0;
-  transform: scale(0.9);
   pointer-events: none;
+  transform: scale(0.9);
 }
 
-
-/* 🐰 Cute GIF Entrance */
+/* 🐰 Cute GIF */
 .cute-gif {
-  display: block;
-  margin: 0 auto;
+  position: absolute;
+  right: -220px;
+  bottom: 130px;
   width: 180px;
   opacity: 0;
   animation: none;
   z-index: 6;
 }
 
-/* Entrance animation — slides in smoothly from the right */
 @keyframes slideInGif {
-  0% {
-    transform: translateX(60px);
-    opacity: 0;
-  }
-  60% {
-    transform: translateX(-10px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  0% { transform: translateX(0); opacity: 0; }
+  60% { transform: translateX(-80px); opacity: 1; }
+  100% { transform: translateX(-260px); opacity: 1; }
 }
 
 .cute-gif.active {
   animation: slideInGif 2.5s ease-out forwards;
 }
 
-/* 📱 Responsive tweaks for smaller screens */
+/* 📱 Responsive */
 @media (max-width: 600px) {
   .cute-gif {
-    width: 150px;   /* Slightly smaller for mobile */
-    margin-top: 10px;
+    bottom: 60px;  /* lower it a bit more for phones */
+    right: -130px;
+    width: 160px;
   }
 }
-
 
