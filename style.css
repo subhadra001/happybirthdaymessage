@@ -85,7 +85,7 @@ body {
 .sub-message {
   color: #6B2819;
   font-size: 1.5rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif, cursive;
   margin-top: 8px;
   opacity: 0;
   transform: translateY(10px);
