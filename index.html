@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <div class="cake-wrapper">
-      <h1 class="message" id="message">🎂 Happy Birthday! 🎉</h1>
-
       <div class="cake" id="cake">
         <div class="candles">
           <div class="candle"></div>
@@ -22,16 +21,17 @@
         <div class="layer layer-bottom"></div>
         <div class="plate"></div>
       </div>
-    </div>
 
-    <button id="lightPlayBtn">💗 Light & Play 💗</button>
+      <h1 class="message" id="message">Happy Birthday!</h1>
+      <button id="lightPlayBtn">💗 Light & Play 💗</button>
+    </div>
   </div>
 
   <!-- Confetti library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
   <!-- Audio -->
-  <audio id="birthdayAudio" preload="auto">
+  <audio id="birthdayAudio" preload="auto" loop>
     <source src="happy-birthday-to-you-370804.mp3" type="audio/mpeg">
   </audio>
 
