@@ -1,53 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy Birthday Bobo 🎂</title>
-
-  <!-- Cursive + system fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday!</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="stage">
-    <div class="card" aria-live="polite">
-      <div class="bg-glow" aria-hidden="true"></div>
+  <div class="container">
+    <h1 class="message">Happy Birthday!</h1>
 
-      <div class="cake-wrap" aria-hidden="false">
-        <div class="cake" id="cake">
-          <!-- frosting top with scallop -->
-          <div class="frosting">
-            <div class="scallop s1"></div><div class="scallop s2"></div><div class="scallop s3"></div><div class="scallop s4"></div>
-          </div>
-
-          <div class="cake-layer top"></div>
-          <div class="cake-layer middle"></div>
-          <div class="cake-layer base"></div>
-
-          <div class="candles" id="candles">
-            <div class="candle" data-delay="0"><span class="wick"></span><span class="flame"></span></div>
-            <div class="candle" data-delay="120"><span class="wick"></span><span class="flame"></span></div>
-            <div class="candle" data-delay="240"><span class="wick"></span><span class="flame"></span></div>
-          </div>
-        </div>
+    <div class="cake">
+      <div class="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
       </div>
-
-      <h1 class="message">happy birthday bobo, <span class="love">I love you!</span></h1>
-
-      <p class="subtle">Click <strong>Light &amp; Play</strong> to light the candles & play a soft piano tune.</p>
-
-      <div class="controls">
-        <button id="lightBtn" class="btn">Light &amp; Play</button>
-        <button id="replayBtn" class="btn ghost" aria-hidden="true">Replay Music</button>
-      </div>
-
-      <div class="sparkles" aria-hidden="true"></div>
+      <div class="layer layer-top"></div>
+      <div class="layer layer-middle"></div>
+      <div class="layer layer-bottom"></div>
+      <div class="plate"></div>
     </div>
-  </main>
 
-  <div id="confetti-layer" aria-hidden="true"></div>
+    <button id="lightPlayBtn">🎵 Light & Play</button>
+  </div>
+
+  <audio id="birthdayTune" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3e1a6ec3ab.mp3?filename=happy-birthday-to-you-soft-piano-14213.mp3"></audio>
+
+  <canvas id="confettiCanvas"></canvas>
 
   <script src="script.js"></script>
 </body>
