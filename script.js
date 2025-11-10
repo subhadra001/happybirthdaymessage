@@ -4,10 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const candles = document.querySelectorAll(".candle");
   const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
-  // Make the bunny hop in
-const bunny = document.getElementById("bunny");
-bunny.style.opacity = "1";
-bunny.style.animation = "bunnyHop 3s ease-out forwards";
 
 
   // 🩷 Allow Chrome to unlock audio
