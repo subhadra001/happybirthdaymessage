@@ -386,9 +386,9 @@ body {
 /* 🐰 Cute GIF Entrance */
 .cute-gif {
   position: absolute;
-  right: -220px;           /* adjusted for better placement */
+  right: -220px;           /* adjusted for desktop placement */
   bottom: 130px;
-  width: 180px;            /* increased size */
+  width: 180px;            /* larger for desktop */
   opacity: 0;
   animation: none;
   z-index: 6;
@@ -421,21 +421,11 @@ body {
 /* 📱 Responsive tweaks for smaller screens */
 @media (max-width: 600px) {
   .cute-gif {
-    right: -130px;
-    bottom: 90px;
-    width: 180px;
+    right: -120px;
+    bottom: 40px;          /* ↓ moved further down to avoid overlapping text */
+    width: 150px;          /* slightly smaller for balance */
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
