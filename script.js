@@ -14,8 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showMessage() {
-    message.classList.add("show-message");
-  }
+  message.classList.add("show-message");
+  setTimeout(() => {
+    document.getElementById("subMessage").classList.add("show-sub-message");
+  }, 1000); // appears 1 second later for a nice reveal
+}
+
 
   // 💖 Constant falling heart confetti
   function startHeartRain() {
