@@ -44,7 +44,7 @@ body{
 }
 
 .bg-glow{
-  position:absolute;
+  position:relative;
   left:50%;
   top:28%;
   transform:translateX(-50%);
