@@ -157,18 +157,22 @@ body {
 /* 🧁 Cream Layers — cute, wobbly, pastel dripping look */
 /* 🧁 Cream Layers — cute, wobbly, pastel dripping look */
 
+/* 🧁 Cream Layers — cute, wobbly, pastel dripping look */
+
 /* Top cream (on top of smallest tier) */
 .cream {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: -12px;
-  width: 160px; /* same as top tier */
-  height: 30px;
-  background: radial-gradient(circle at 50% 40%, #fff 40%, #f8f8f8 80%);
-  border-radius: 50% 50% 30% 30% / 50% 50% 30% 30%;
-  box-shadow: 0 3px 8px rgba(255, 192, 203, 0.28), inset 0 -2px 4px rgba(255, 182, 193, 0.16);
-  z-index: 10; /* keep on top of cake layers */
+  width: 160px;
+  height: 32px;
+  background: linear-gradient(180deg, #fffafc 0%, #ffe8f0 90%);
+  border-radius: 50% 50% 40% 40% / 50% 50% 30% 30%;
+  box-shadow: 0 3px 8px rgba(255, 192, 203, 0.28),
+              inset 0 -3px 6px rgba(255, 182, 193, 0.18),
+              inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  z-index: 10;
   animation: wobble 2.8s ease-in-out infinite;
 }
 
@@ -178,16 +182,18 @@ body {
   bottom: -6px;
   left: 0;
   width: 100%;
-  height: 10px;
+  height: 14px;
   background:
-    radial-gradient(circle at 16% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 36% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 56% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 76% 100%, #fff 30%, transparent 30%);
-  background-size: 25% 100%;
+    radial-gradient(circle at 10% 100%, #fff 35%, transparent 36%),
+    radial-gradient(circle at 30% 100%, #fff 40%, transparent 41%),
+    radial-gradient(circle at 50% 100%, #fff 35%, transparent 36%),
+    radial-gradient(circle at 70% 100%, #fff 38%, transparent 39%),
+    radial-gradient(circle at 90% 100%, #fff 34%, transparent 35%);
+  background-size: 20% 100%;
   background-repeat: no-repeat;
   opacity: 0.98;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 10px 10px;
+  animation: drip 2.5s ease-in-out infinite alternate;
 }
 
 /* Middle cream */
@@ -195,13 +201,14 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 52px; /* sits right between top & middle tiers */
-  width: 200px; /* same as middle tier */
-  height: 14px;
-  background: linear-gradient(180deg, #fff5f7, #ffe4ec);
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(255, 182, 193, 0.38);
-  z-index: 9; /* above middle tier */
+  top: 52px;
+  width: 200px;
+  height: 16px;
+  background: linear-gradient(180deg, #fff6fa 0%, #ffe4ec 100%);
+  border-radius: 20px;
+  box-shadow: 0 1px 6px rgba(255, 182, 193, 0.38),
+              inset 0 2px 4px rgba(255, 255, 255, 0.85);
+  z-index: 9;
   animation: wobble 3.4s ease-in-out infinite;
 }
 
@@ -209,20 +216,20 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -6px;
   width: 100%;
-  height: 8px;
+  height: 12px;
   background:
-    radial-gradient(circle at 12% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 32% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 52% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 72% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 92% 100%, #fff 30%, transparent 30%);
+    radial-gradient(circle at 8% 100%, #fff 40%, transparent 41%),
+    radial-gradient(circle at 28% 100%, #fff 38%, transparent 39%),
+    radial-gradient(circle at 48% 100%, #fff 35%, transparent 36%),
+    radial-gradient(circle at 68% 100%, #fff 42%, transparent 43%),
+    radial-gradient(circle at 88% 100%, #fff 37%, transparent 38%);
   background-size: 20% 100%;
   background-repeat: no-repeat;
   opacity: 0.95;
-  border-radius: 0 0 8px 8px;
-  animation: drip 2.5s ease-in-out infinite alternate;
+  border-radius: 0 0 12px 12px;
+  animation: drip 2.8s ease-in-out infinite alternate;
 }
 
 /* Bottom cream */
@@ -230,13 +237,14 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 117px; /* between middle & bottom tiers */
-  width: 240px; /* same as bottom tier */
-  height: 16px;
-  background: linear-gradient(180deg, #fff5f7, #ffe4ec);
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(255, 182, 193, 0.38);
-  z-index: 8; /* above bottom tier */
+  top: 117px;
+  width: 240px;
+  height: 18px;
+  background: linear-gradient(180deg, #fff7fa 0%, #ffdbe7 100%);
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.38),
+              inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  z-index: 8;
   animation: wobble 3.8s ease-in-out infinite;
 }
 
@@ -244,35 +252,36 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -6px;
   width: 100%;
-  height: 10px;
+  height: 14px;
   background:
-    radial-gradient(circle at 10% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 30% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 50% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 70% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 90% 100%, #fff 30%, transparent 30%);
+    radial-gradient(circle at 10% 100%, #fff 42%, transparent 43%),
+    radial-gradient(circle at 30% 100%, #fff 38%, transparent 39%),
+    radial-gradient(circle at 50% 100%, #fff 35%, transparent 36%),
+    radial-gradient(circle at 70% 100%, #fff 40%, transparent 41%),
+    radial-gradient(circle at 90% 100%, #fff 37%, transparent 38%);
   background-size: 20% 100%;
   background-repeat: no-repeat;
   opacity: 0.95;
-  border-radius: 0 0 10px 10px;
-  animation: drip 3s ease-in-out infinite alternate;
+  border-radius: 0 0 12px 12px;
+  animation: drip 3.2s ease-in-out infinite alternate;
 }
 
 /* 🎀 Cute, subtle wobble animation for soft cartoon look */
 @keyframes wobble {
   0%, 100% { transform: translateX(-50%) rotate(0deg); }
-  25% { transform: translateX(-50%) rotate(0.8deg); }
-  50% { transform: translateX(-50%) rotate(-0.8deg); }
-  75% { transform: translateX(-50%) rotate(0.5deg); }
+  25% { transform: translateX(-50%) rotate(0.9deg); }
+  50% { transform: translateX(-50%) rotate(-0.9deg); }
+  75% { transform: translateX(-50%) rotate(0.6deg); }
 }
 
-/* 🍯 Gentle drip motion */
+/* 🍯 Gentle drip bounce for frosting look */
 @keyframes drip {
   0% { transform: translateY(0); }
-  100% { transform: translateY(3px); }
+  100% { transform: translateY(4px); }
 }
+
 
 
 
