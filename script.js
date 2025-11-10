@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const lightBtn = document.getElementById("lightBtn");
-  const card = document.querySelector(".card");
-  const candles = document.querySelectorAll(".candle");
-  const confettiLayer = document.getElementById("confetti-layer");
+  const lightBtn = document.getElementById("lightPlayBtn");
   const cake = document.getElementById("cake");
+  const candles = document.querySelectorAll(".candle");
+  const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
 
-  // ensure audio can be played after user click
+  // Enable Chrome audio
   function enableAudio() {
     audio.play().then(() => {
       audio.pause();
@@ -14,51 +13,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }).catch(() => {});
   }
 
-  // 🕯️ Light candles
+  function showMessage() {
+    message.classList.add("show-message");
+  }
+
+  // 🎂 Light candles + play
   function lightCandles() {
-    card.classList.add("lit");
+    cake.classList.add("glow");
+    showMessage();
 
     candles.forEach((candle, i) => {
-      setTimeout(() => {
-        candle.classList.add("lit");
-        if (!candle.querySelector(".flame")) {
-          const flame = document.createElement("div");
-          flame.className = "flame";
-          candle.appendChild(flame);
-        }
-      }, i * 150);
+      setTimeout(() => candle.classList.add("lit"), i * 200);
     });
 
-    // Play music after lighting
+    // Play song
     setTimeout(() => {
       audio.currentTime = 0;
       audio.play().catch(err => console.log("Audio play error:", err));
-    }, 500);
+    }, 600);
 
     // Confetti burst
     if (typeof confetti === "function") {
-      confetti({
-        particleCount: 150,
+      const burst = () => confetti({
+        particleCount: 200,
         spread: 100,
         origin: { y: 0.6 },
         colors: ["#ffb3c6", "#ffe5ec", "#ff8fab", "#ffc8dd", "#ffd6a5"]
       });
+      burst();
+      setTimeout(burst, 300);
+      setTimeout(burst, 600);
     }
   }
 
-  // 🩷 Button click
+  // 💗 Click handler
   lightBtn.addEventListener("click", () => {
-    enableAudio(); // unlocks sound
-    if (!card.classList.contains("lit")) {
-      lightCandles();
-    }
+    enableAudio();
+    if (!cake.classList.contains("glow")) lightCandles();
   });
 
-  // 🍰 Cake click = same effect
+  // 🍰 Click cake to trigger
   cake.addEventListener("click", () => {
     enableAudio();
-    if (!card.classList.contains("lit")) {
-      lightCandles();
-    }
+    if (!cake.classList.contains("glow")) lightCandles();
   });
 });
+
