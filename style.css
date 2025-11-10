@@ -154,23 +154,24 @@ body {
   box-shadow: 0 3px 6px rgba(255, 182, 193, 0.25);
 }
 
+/* 🧁 Cream Layers — cute, wobbly, pastel dripping look */
 
-/* 🧁 White Cream Layer */
+/* Top cream (on top of smallest tier) */
 .cream {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: -10px;              /* slightly above the top tier */
-  width: 160px;            /* match top tier width */
+  top: -12px;
+  width: 160px; /* same as top tier */
   height: 30px;
   background: radial-gradient(circle at 50% 40%, #fff 40%, #f8f8f8 80%);
   border-radius: 50% 50% 30% 30% / 50% 50% 30% 30%;
   box-shadow: 0 3px 8px rgba(255, 192, 203, 0.28), inset 0 -2px 4px rgba(255, 182, 193, 0.16);
-  z-index: 6;
+  z-index: 10; /* keep on top of cake layers */
+  animation: wobble 2.8s ease-in-out infinite;
 }
 
 .cream::after {
-  /* small scallop decoration that matches top cream width */
   content: "";
   position: absolute;
   bottom: -6px;
@@ -184,27 +185,23 @@ body {
     radial-gradient(circle at 76% 100%, #fff 30%, transparent 30%);
   background-size: 25% 100%;
   background-repeat: no-repeat;
-  border-radius: 0 0 8px 8px;
   opacity: 0.98;
+  border-radius: 0 0 8px 8px;
 }
 
-/* Middle cream - sits between top and middle tiers */
+/* Middle cream */
 .middle-cream {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top:  fifty; /* temporary placeholder to be removed by next block */
-}
-
-/* Corrected middle cream */
-.middle-cream {
-  top: 50px;               /* just below top tier (top tier top 0 + height 50) */
-  width: 200px;            /* match middle tier width */
+  top: 52px; /* sits right between top & middle tiers */
+  width: 200px; /* same as middle tier */
   height: 14px;
   background: linear-gradient(180deg, #fff5f7, #ffe4ec);
   border-radius: 12px;
   box-shadow: 0 1px 4px rgba(255, 182, 193, 0.38);
-  z-index: 4;
+  z-index: 9; /* above middle tier */
+  animation: wobble 3.4s ease-in-out infinite;
 }
 
 .middle-cream::after {
@@ -215,29 +212,31 @@ body {
   width: 100%;
   height: 8px;
   background:
-    radial-gradient(circle at 16% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 36% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 56% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 76% 100%, #fff 30%, transparent 30%);
-  background-size: 25% 100%;
+    radial-gradient(circle at 12% 100%, #fff 30%, transparent 30%),
+    radial-gradient(circle at 32% 100%, #fff 30%, transparent 30%),
+    radial-gradient(circle at 52% 100%, #fff 30%, transparent 30%),
+    radial-gradient(circle at 72% 100%, #fff 30%, transparent 30%),
+    radial-gradient(circle at 92% 100%, #fff 30%, transparent 30%);
+  background-size: 20% 100%;
   background-repeat: no-repeat;
-  opacity: 0.92;
+  opacity: 0.95;
   border-radius: 0 0 8px 8px;
+  animation: drip 2.5s ease-in-out infinite alternate;
 }
 
-
-* Bottom cream - sits between middle and bottom tiers */
+/* Bottom cream */
 .bottom-cream {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 115px;              /* just below middle tier (middle top 60 + height 55 = 115) */
-  width: 240px;            /* match bottom tier width */
+  top: 117px; /* between middle & bottom tiers */
+  width: 240px; /* same as bottom tier */
   height: 16px;
   background: linear-gradient(180deg, #fff5f7, #ffe4ec);
   border-radius: 12px;
   box-shadow: 0 1px 4px rgba(255, 182, 193, 0.38);
-  z-index: 3;
+  z-index: 8; /* above bottom tier */
+  animation: wobble 3.8s ease-in-out infinite;
 }
 
 .bottom-cream::after {
@@ -248,16 +247,35 @@ body {
   width: 100%;
   height: 10px;
   background:
-    radial-gradient(circle at 12% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 32% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 52% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 72% 100%, #fff 30%, transparent 30%),
-    radial-gradient(circle at 92% 100%, #fff 30%, transparent 30%);
+    radial-gradient(circle at 10% 100%, #fff 30%, transparent 30%),
+    radial-gradient(circle at 30% 100%, #fff 30%, transparent 30%),
+    radial-gradient(circle at 50% 100%, #fff 30%, transparent 30%),
+    radial-gradient(circle at 70% 100%, #fff 30%, transparent 30%),
+    radial-gradient(circle at 90% 100%, #fff 30%, transparent 30%);
   background-size: 20% 100%;
   background-repeat: no-repeat;
   opacity: 0.95;
   border-radius: 0 0 10px 10px;
+  animation: drip 3s ease-in-out infinite alternate;
 }
+
+/* 🎀 Cute, subtle wobble animation for soft cartoon look */
+@keyframes wobble {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(0.8deg); }
+  50% { transform: translateX(-50%) rotate(-0.8deg); }
+  75% { transform: translateX(-50%) rotate(0.5deg); }
+}
+
+/* 🍯 Gentle drip motion */
+@keyframes drip {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(3px); }
+}
+
+
+
+
 
 .candles {
   position: absolute;
