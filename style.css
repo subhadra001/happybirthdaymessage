@@ -66,7 +66,7 @@ body {
 
 /* 🎀 Birthday Message */
 .message {
-  color: #b3003c;
+  color: #691233;
   font-size: 2.8rem;
   text-shadow: 2px 2px 8px rgba(179, 0, 60, 0.4);
   margin-top: 20px;
@@ -83,8 +83,8 @@ body {
 
 /* 🌸 Sub-message styling */
 .sub-message {
-  color: #ff5c8d;
-  font-size: 1.6rem;
+  color: #6B2819;
+  font-size: 1.5rem;
   font-family: 'Poppins', sans-serif;
   margin-top: 8px;
   opacity: 0;
