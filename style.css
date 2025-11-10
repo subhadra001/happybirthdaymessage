@@ -32,15 +32,18 @@ body {
   padding: 0;
 }
 
+/* message (now a normal flow element below cake) */
 .message {
   color: #ff6699;
-  font-size: 2.8rem;
-  text-shadow: 2px 2px 8px rgba(255, 182, 193, 0.6);
-  margin-top: 20px;
-  font-family: "Pacifico", cursive;
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
+  font-size: 2.6rem;
+  font-family: "Great Vibes", "Pacifico", cursive;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  letter-spacing: 0.6px;
+  opacity: 1;           /* visible by default */
+  transform: none;
+  transition: none;
 }
 
 .show-message {
@@ -104,19 +107,7 @@ body {
   gap: 20px;
 }
 
-/* message (now a normal flow element below cake) */
-.message {
-  color: #ff6699;
-  font-size: 2.6rem;
-  font-family: "Great Vibes", "Pacifico", cursive;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  letter-spacing: 0.6px;
-  opacity: 1;           /* visible by default */
-  transform: none;
-  transition: none;
-}
+
 /* 🔥 Candle Flame */
 .candle.lit::after {
   content: "";
