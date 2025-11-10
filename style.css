@@ -1,44 +1,4 @@
-body {
-  margin: 0;
-  background: linear-gradient(180deg, #fff0f6 0%, #ffe8ef 100%);
-  font-family: "Comic Sans MS", "Poppins", cursive;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.container {
-  position: relative;
-  text-align: center;
-}
-
-/* 🎉 Birthday Message */
-#message {
-  position: absolute;
-  top: -120px;
-  width: 100%;
-  color: #ff7ba3;
-  font-size: 2rem;
-  text-shadow: 0 3px 6px rgba(255, 130, 170, 0.4);
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 1.5s ease, transform 1.5s ease;
-}
-
-#message.show-message {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.sub-message {
-  display: block;
-  font-size: 1.2rem;
-  color: #ff9fb6;
-}
-
-/* 🍰 Cake Floating Animation */
+/* Cake Container */
 .cake {
   position: relative;
   display: flex;
@@ -47,131 +7,67 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* 🎂 Cake Layers */
+/* 🎂 Cake Layers (3-tier) */
 .layer {
+  width: 200px;
+  height: 60px;
   border-radius: 12px;
   position: relative;
   margin: 4px 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffd1d9,
+    #ffd1d9 10px,
+    #fff1f6 10px,
+    #fff1f6 20px
+  );
   box-shadow: 0 4px 10px rgba(255, 150, 180, 0.2);
 }
 
+/* ✨ Vertical white frosting stripe */
+.layer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 12px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255,255,255,0.5));
+  border-radius: 6px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  z-index: 6;
+  opacity: 0.9;
+}
+
+/* Top tier */
 .layer-top {
+  top: 0px;
   width: 160px;
   height: 50px;
-  background: repeating-linear-gradient(
-    to bottom,
-    #ffe4ec,
-    #ffe4ec 8px,
-    #ffcde1 8px,
-    #ffcde1 16px
-  );
+  background: #ffe4ec;
+  z-index: 5;
 }
 
+/* Middle tier */
 .layer-middle {
+  top: 60px;
   width: 200px;
   height: 55px;
-  background: repeating-linear-gradient(
-    to bottom,
-    #ffd6e8,
-    #ffd6e8 8px,
-    #ffbedc 8px,
-    #ffbedc 16px
-  );
+  background: #ffd6e8;
+  z-index: 4;
 }
 
+/* Bottom tier */
 .layer-bottom {
+  top: 125px;
   width: 240px;
   height: 60px;
-  background: repeating-linear-gradient(
-    to bottom,
-    #ffb6c1,
-    #ffb6c1 8px,
-    #ffa7b9 8px,
-    #ffa7b9 16px
-  );
+  background: #ffb6c1;
+  z-index: 3;
 }
 
-/* 🍦 Cream Layers (half-circle pattern) */
-.cream {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 18px;
-  background-color: #fff0f5;
-  border-radius: 0 0 10px 10px;
-  background-image: radial-gradient(circle at 10px 0, #fff 10px, transparent 11px);
-  background-size: 20px 100%;
-  background-repeat: repeat-x;
-}
-
-.top-cream {
-  top: 48px;
-  width: 160px;
-}
-
-.middle-cream {
-  top: 110px;
-  width: 200px;
-}
-
-.bottom-cream {
-  top: 175px;
-  width: 240px;
-}
-
-/* 🕯️ Candles */
-.candles {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  position: absolute;
-  top: -35px;
-}
-
-.candle {
-  width: 14px;
-  height: 40px;
-  background: repeating-linear-gradient(
-    to bottom,
-    #ffd6e8,
-    #ffd6e8 6px,
-    #ffadc6 6px,
-    #ffadc6 12px
-  );
-  border-radius: 4px;
-  position: relative;
-}
-
-.flame {
-  width: 10px;
-  height: 16px;
-  background: radial-gradient(circle at 50% 50%, #ffeb3b, #ff9800 70%);
-  border-radius: 50%;
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%) scale(0);
-  opacity: 0;
-  transition: all 0.4s ease;
-}
-
-.candle.lit .flame {
-  transform: translateX(-50%) scale(1);
-  opacity: 1;
-  animation: flicker 0.2s infinite alternate;
-}
-
-@keyframes flicker {
-  0% { transform: translateX(-50%) scale(1); opacity: 1; }
-  100% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
-}
-
-/* 🍽️ Plate */
+/* Plate */
 .plate {
   position: absolute;
   left: 50%;
@@ -179,82 +75,8 @@ body {
   bottom: -24px;
   width: 260px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(255, 182, 193, 0.25);
 }
 
-/* ✨ Button */
-#lightPlayBtn {
-  margin-top: 30px;
-  padding: 10px 20px;
-  border: none;
-  background: #ffb3c6;
-  color: white;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  box-shadow: 0 3px 6px rgba(255, 150, 180, 0.3);
-  transition: transform 0.3s ease, opacity 0.5s ease;
-}
-
-#lightPlayBtn:hover {
-  transform: scale(1.1);
-}
-
-#lightPlayBtn.fade-out {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.9);
-}
-
-#lightButton {
-  transition: opacity 0.5s ease;
-}
-
-#lightButton.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-
-/* 🐰 Cute GIF Entrance */
-.cute-gif {
-  position: absolute;
-  right: -220px;           /* adjusted for better placement */
-  bottom: 120px;
-  width: 180px;            /* increased size */
-  max-width: 30vw;         /* responsive scaling for phones */
-  opacity: 0;
-  animation: none;
-  z-index: 6;
-}
-
-/* Entrance animation — slides in smoothly */
-@keyframes slideInGif {
-  0% {
-    transform: translateX(0);
-    opacity: 0;
-  }
-  60% {
-    transform: translateX(-80px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-260px);
-    opacity: 1;
-  }
-}
-
-.cute-gif.active {
-  animation: slideInGif 2.5s ease-out forwards;
-}
-
-/* 📱 Responsive tweaks for smaller screens */
-@media (max-width: 600px) {
-  .cute-gif {
-    right: -140px;
-    bottom: 100px;
-    width: 130px;
-  }
-}
