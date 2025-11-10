@@ -394,11 +394,13 @@ body {
 /* 🐰 Cute GIF Entrance */
 .cute-gif {
   display: block;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;   /* added top margin for breathing room */
   width: 180px;
   opacity: 0;
   animation: none;
   z-index: 6;
+  position: relative;         /* prevents overlap issues on smaller viewports */
+  top: 10px;                  /* slight downward shift */
 }
 
 /* Entrance animation — slides in smoothly from the right */
@@ -424,10 +426,17 @@ body {
 /* 📱 Responsive tweaks for smaller screens */
 @media (max-width: 600px) {
   .cute-gif {
-    width: 150px;   /* Slightly smaller for mobile */
-    margin-top: 10px;
+    width: 150px;        /* slightly smaller */
+    top: 30px;           /* move it further down on phones */
+    margin-top: 20px;    /* ensure no overlap with message */
+  }
+
+  .message {
+    font-size: 2.2rem;   /* shrink slightly for better spacing */
+  }
+
+  .sub-message {
+    font-size: 1.1rem;   /* match proportion on smaller view */
+    margin-top: 12px;
   }
 }
-
-
-
