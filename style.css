@@ -204,7 +204,7 @@ body {
   top: 52px;
   width: 200px;
   height: 16px;
-  background: linear-gradient(180deg, #fff6fa 0%, #ffe4ec 100%);
+  background: linear-gradient(250deg, #fff6fa 0%, #ffe4ec 100%);
   border-radius: 20px;
   box-shadow: 0 1px 6px rgba(255, 182, 193, 0.38),
               inset 0 2px 4px rgba(255, 255, 255, 0.85);
