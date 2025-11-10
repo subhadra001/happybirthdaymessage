@@ -3,8 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const cake = document.getElementById("cake");
   const candles = document.querySelectorAll(".candle");
   const message = document.getElementById("message");
+  const subMessage = document.getElementById("subMessage");
   const audio = document.getElementById("birthdayAudio");
   const cuteGif = document.getElementById("cuteGif");
+
+  // 🎀 Cute GIF entrance
+  setTimeout(() => {
+    cuteGif.classList.add("active");
+  }, 800);
 
   // 🩷 Allow Chrome to unlock audio
   function enableAudio() {
@@ -14,56 +20,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }).catch(() => {});
   }
 
-  // 🎉 Show message and activate GIF
-  function showMessage() {
-    message.classList.add("show-message");
-    setTimeout(() => {
-      cuteGif.classList.add("active");
-    }, 800); // show GIF slightly after message appears
-  }
+  enableAudio();
 
-  // 🕯️ Light candles + trigger everything
-  function lightCandles() {
-    cake.classList.add("glow");
-    showMessage();
-
-    candles.forEach((candle, i) => {
-      setTimeout(() => candle.classList.add("lit"), i * 200);
-    });
-
-    // 🎵 Play audio
-    setTimeout(() => {
-      audio.currentTime = 0;
-      audio.play().catch(err => console.log("Audio play error:", err));
-    }, 600);
-
-    // 🎊 Confetti
-    if (typeof confetti === "function") {
-      for (let i = 0; i < 6; i++) {
-        setTimeout(() => {
-          confetti({
-            particleCount: 150,
-            spread: 100,
-            origin: { y: 0.6 },
-            colors: ["#ffb3c6", "#ffe5ec", "#ff8fab", "#ffc8dd", "#ffd6a5"]
-          });
-        }, i * 300);
-      }
-    }
-
-    // 🌸 Fade out the button
-    lightBtn.style.transition = "opacity 1s ease, transform 1s ease";
-    lightBtn.style.opacity = "0";
-    lightBtn.style.transform = "scale(0.9)";
-    setTimeout(() => lightBtn.style.display = "none", 1000);
-  }
-
-  // 💗 Button click handler
+  // 🕯️ When button clicked
   lightBtn.addEventListener("click", () => {
-    enableAudio();
-    if (!cake.classList.contains("glow")) {
-      lightCandles();
-    }
+    // Light candles
+    candles.forEach(candle => candle.classList.add("lit"));
+
+    // Play song
+    audio.currentTime = 0;
+    audio.play();
+
+    // Show main message
+    setTimeout(() => {
+      message.classList.add("show-message");
+    }, 1000);
+
+    // Show sub-message a bit later ✨
+    setTimeout(() => {
+      subMessage.classList.add("show-sub");
+    }, 2000);
+
+    // Confetti celebration 🎉
+    setTimeout(() => {
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+    }, 1500);
+
+    // Hide the button & lock audio
+    lightBtn.style.display = "none";
   });
 });
-
