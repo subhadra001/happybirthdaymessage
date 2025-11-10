@@ -1,6 +1,5 @@
 // Improved visuals + melody + continuous soft hearts
 const lightBtn = document.getElementById('lightBtn');
-const replayBtn = document.getElementById('replayBtn');
 const card = document.querySelector('.card');
 const candles = document.querySelectorAll('.candle');
 const confettiLayer = document.getElementById('confetti-layer');
@@ -75,8 +74,6 @@ function lightCandles(){
 
   spawnHearts(14);
   spawnSparkles(6);
-  try { playMelody(); replayBtn.removeAttribute('aria-hidden'); }
-  catch(e){}
 }
 
 // create heart confetti
@@ -147,11 +144,6 @@ function spawnSparkles(n=6){
 lightBtn.addEventListener('click', async () => {
   try{ initAudio(); await audioCtx.resume(); } catch(e){}
   if(!card.classList.contains('lit')) lightCandles();
-});
-
-replayBtn.addEventListener('click', () => {
-  if(!audioCtx) initAudio();
-  audioCtx.resume().then(playMelody);
 });
 
 // cake click to light
