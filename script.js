@@ -159,14 +159,35 @@ function throwConfetti() {
 
 
 // button handlers
+// button handlers
 lightBtn.addEventListener('click', async () => {
   try {
     initAudio();
     await audioCtx.resume();
     if (!card.classList.contains('lit')) {
       lightCandles();
-      playMelody();
-      throwConfetti(); // 🎊 add this line
+      playMelody(); // 🔥 Play the melody here
+
+      // 🎊 Continuous confetti for 6 seconds
+      const duration = 6000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          startVelocity: 30,
+          spread: 360,
+          ticks: 60,
+          origin: {
+            x: Math.random(),
+            y: Math.random() - 0.2
+          },
+          colors: ['#ffb6c1', '#ff69b4', '#ffd1dc', '#fff0f5', '#ffe4e1']
+        });
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
     }
   } catch (e) {
     console.error("Audio context error:", e);
