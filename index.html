@@ -4,50 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday Bobo 🎂</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <!-- 💕 Floating hearts -->
-<div id="hearts"></div>
 
-<script>
-  const heartsContainer = document.getElementById("hearts");
-
-  <!-- Floating hearts and strawberries -->
-<div id="hearts"></div>
-
-<script>
-  const heartsContainer = document.getElementById("hearts");
-  const symbols = ["💗", "🍓"]; // emojis you want to float
-
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-
-    // start from bottom random X position
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-10px";
-
-    // vary speed and size
-    const duration = 6 + Math.random() * 4;
-    heart.style.animationDuration = duration + "s";
-    heart.style.fontSize = 20 + Math.random() * 20 + "px";
-
-    heartsContainer.appendChild(heart);
-
-    // remove after floating out
-    setTimeout(() => heart.remove(), duration * 1000);
-  }, 600);
-</script>
-
- 
-</script>
-
-</script>
+    <!-- Floating hearts & strawberries container -->
+    <div id="hearts"></div>
 
     <div class="cake-wrapper">
       <div class="cake" id="cake">
@@ -75,8 +43,27 @@
     <source src="happy-birthday-to-you-370804.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- Floating hearts & strawberries -->
+  <script>
+    const heartsContainer = document.getElementById("hearts");
+    const symbols = ["💗", "🍓"];
 
-  <!-- Script -->
+    setInterval(() => {
+      const emoji = document.createElement("div");
+      emoji.classList.add("heart");
+      emoji.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = 6 + Math.random() * 4 + "s";
+      emoji.style.fontSize = 18 + Math.random() * 20 + "px";
+
+      heartsContainer.appendChild(emoji);
+
+      setTimeout(() => emoji.remove(), 10000);
+    }, 600);
+  </script>
+
+  <!-- Main script -->
   <script src="script.js"></script>
 </body>
 </html>
