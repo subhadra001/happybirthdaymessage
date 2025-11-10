@@ -387,9 +387,8 @@ body {
 .cute-gif {
   position: absolute;
   right: -220px;           /* adjusted for better placement */
-  bottom: 70px;
+  bottom: 130px;
   width: 180px;            /* increased size */
-  max-width: 40vw;         /* responsive scaling for phones */
   opacity: 0;
   animation: none;
   z-index: 6;
@@ -423,7 +422,7 @@ body {
 @media (max-width: 600px) {
   .cute-gif {
     right: -130px;
-    bottom: 120px;
+    bottom: 90px;
     width: 180px;
   }
 }
