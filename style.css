@@ -408,7 +408,7 @@ body {
 /* 📱 Responsive tweaks for smaller screens */
 @media (max-width: 600px) {
   .cute-gif {
-    right: -140px;
+    right: -130px;
     bottom: 120px;
     width: 190px;
   }
