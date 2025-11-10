@@ -12,38 +12,24 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;       /* horizontal centering */
-  justify-content: center;   /* vertical centering */
-  gap: 28px;                 /* space between cake, message, button */
-  height: 100vh;             /* fill viewport so vertical centering works */
-  box-sizing: border-box;
-  padding: 20px;
   text-align: center;
+  position: relative;
 }
 
 .cake-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  margin: 0;                 /* remove stray top/side margins */
-  padding: 0;
+  position: relative;
+  display: inline-block;
 }
 
-/* message (now a normal flow element below cake) */
 .message {
   color: #ff6699;
-  font-size: 2.6rem;
-  font-family: "Great Vibes", "Pacifico", cursive;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  letter-spacing: 0.6px;
-  opacity: 1;           /* visible by default */
-  transform: none;
-  transition: none;
+  font-size: 2.8rem;
+  text-shadow: 2px 2px 8px rgba(255, 182, 193, 0.6);
+  margin-top: 20px;
+  font-family: "Pacifico", cursive;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .show-message {
@@ -54,29 +40,38 @@ body {
 /* 🎂 Cake Base */
 .cake {
   position: relative;
-  width: 220px;     /* a touch wider for visual balance */
-  height: 200px;
-  margin: 0;        /* center via flex, not margin-top */
-  background: none;
+  width: 200px;
+  height: 180px;
+  margin-bottom: 40px;
+  background: none; /* ✅ no background to avoid white block */
   transition: box-shadow 0.6s ease;
-  display: block;
-}
-/* 🎀 Cake Layers (soft pastel look) */
-.layer {
-  position: absolute; /* keep absolute for stacking, but cake centers as block */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  height: 54px;
-  border-radius: 16px;
-  border: 2px solid #ffd1dc;
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.8);
 }
 
-/* layer vertical positions */
-.layer-top  { top: 6px;  background: #ffe4ec; }
-.layer-middle{ top: 66px; background: #ffd6e8; }
-.layer-bottom{ top: 126px; background: #ffb6c1; }
+/* 🎀 Cake Layers (soft pastel look) */
+.layer {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  left: 0;
+  border: 2px solid #ffd1dc;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.layer-top {
+  top: 0;
+  background: #ffe4ec;
+}
+
+.layer-middle {
+  top: 55px;
+  background: #ffd6e8;
+}
+
+.layer-bottom {
+  top: 110px;
+  background: #ffb6c1;
+}
 
 /* ✨ Glow effect — soft pink aura, no white patch */
 .glow {
@@ -87,26 +82,33 @@ body {
 /* 🍽 Plate — made translucent */
 .plate {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -24px;
-  width: 240px;
+  bottom: -20px;
+  width: 220px;
   height: 20px;
-  background: rgba(255,255,255,0.12);
-  border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(255,182,193,0.25);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  left: -10px;
+  box-shadow: 0 3px 6px rgba(255, 182, 193, 0.4);
+  backdrop-filter: blur(4px);
 }
 
-/* candles centered relative to cake */
 .candles {
   position: absolute;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
-  top: -38px;
   display: flex;
   gap: 20px;
 }
 
+.candle {
+  width: 12px;
+  height: 40px;
+  background: #ffd1d9;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.7);
+}
 
 /* 🔥 Candle Flame */
 .candle.lit::after {
