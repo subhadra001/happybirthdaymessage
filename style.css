@@ -12,7 +12,7 @@ body {
   position: relative;
 }
 
-/* ❤️🍓 Floating Up Animation */
+/* ❤️ Floating Up Animation */
 @keyframes floatUp {
   0% {
     transform: translateY(0) translateX(0) rotate(0deg);
@@ -51,8 +51,6 @@ body {
 .heart:nth-child(3n) { animation-duration: 9s; font-size: 18px; }
 .heart:nth-child(4n) { animation-duration: 11s; font-size: 26px; }
 
-
-
 .container {
   display: flex;
   flex-direction: column;
@@ -67,19 +65,9 @@ body {
   z-index: 2; /* ensure cake & message appear above confetti */
 }
 
-/* cake-wrapper */
-.cake-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  margin: 0;
-  padding: 0;
-}
-
-/* 🎀 Updated message color */
+/* 🎀 Birthday Message */
 .message {
-  color: #b3003c; /* dark cherry red */
+  color: #b3003c;
   font-size: 2.8rem;
   text-shadow: 2px 2px 8px rgba(179, 0, 60, 0.4);
   margin-top: 20px;
@@ -94,7 +82,7 @@ body {
   transform: translateY(0);
 }
 
-/* Cake */
+/* Cake Container */
 .cake {
   position: relative;
   width: 200px;
@@ -104,7 +92,7 @@ body {
   transition: box-shadow 0.6s ease;
 }
 
-/* 🎂 Cake Layers (3-tier realistic sizing) */
+/* 🎂 Cake Layers (3-tier) */
 .layer {
   position: absolute;
   left: 50%;
@@ -112,67 +100,53 @@ body {
   border-radius: 16px;
   border: 2px solid #ffd1dc;
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8);
+  overflow: hidden;
 }
 
-/* 🎂 Striped Cake Layers */
+/* ✨ Vertical white frosting stripe */
+.layer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 12px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255,255,255,0.5));
+  border-radius: 6px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  z-index: 6;
+  opacity: 0.9;
+}
+
+/* Top tier */
 .layer-top {
   top: 0px;
   width: 160px;
   height: 50px;
-  background: repeating-linear-gradient(
-    90deg,
-    #ffe4ec 0px,
-    #ffe4ec 15px,
-    #fff0f5 15px,
-    #fff0f5 30px,
-    #ffd1dc 30px,
-    #ffd1dc 45px
-  );
-  border: 2px solid #ffd1dc;
-  border-radius: 16px;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.7);
+  background: #ffe4ec;
   z-index: 5;
 }
 
+/* Middle tier */
 .layer-middle {
   top: 60px;
   width: 200px;
   height: 55px;
-  background: repeating-linear-gradient(
-    90deg,
-    #ffd6e8 0px,
-    #ffd6e8 20px,
-    #fff0f8 20px,
-    #fff0f8 40px,
-    #ffe0ed 40px,
-    #ffe0ed 60px
-  );
-  border: 2px solid #ffccda;
-  border-radius: 16px;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.7);
+  background: #ffd6e8;
   z-index: 4;
 }
 
+/* Bottom tier */
 .layer-bottom {
   top: 125px;
   width: 240px;
   height: 60px;
-  background: repeating-linear-gradient(
-    90deg,
-    #ffb6c1 0px,
-    #ffb6c1 25px,
-    #ffe4ec 25px,
-    #ffe4ec 50px,
-    #ffd1dc 50px,
-    #ffd1dc 75px
-  );
-  border: 2px solid #ffb6c1;
-  border-radius: 16px;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.7);
+  background: #ffb6c1;
   z-index: 3;
 }
 
-/* Plate under the cake */
+/* Plate */
 .plate {
   position: absolute;
   left: 50%;
@@ -185,12 +159,7 @@ body {
   box-shadow: 0 3px 6px rgba(255, 182, 193, 0.25);
 }
 
-/* 🧁 Cream Layers — cute, wobbly, pastel dripping look */
-/* 🧁 Cream Layers — cute, wobbly, pastel dripping look */
-
-/* 🧁 Cream Layers — cute, wobbly, pastel dripping look */
-
-/* Top cream (on top of smallest tier) */
+/* 🧁 Cream Layers */
 .cream {
   position: absolute;
   left: 50%;
@@ -206,7 +175,6 @@ body {
   z-index: 10;
   animation: wobble 2.8s ease-in-out infinite;
 }
-
 .cream::after {
   content: "";
   position: absolute;
@@ -227,7 +195,7 @@ body {
   animation: drip 2.5s ease-in-out infinite alternate;
 }
 
-/* Middle cream */
+/* Middle Cream */
 .middle-cream {
   position: absolute;
   left: 50%;
@@ -242,7 +210,6 @@ body {
   z-index: 9;
   animation: wobble 3.4s ease-in-out infinite;
 }
-
 .middle-cream::after {
   content: "";
   position: absolute;
@@ -263,7 +230,7 @@ body {
   animation: drip 2.8s ease-in-out infinite alternate;
 }
 
-/* Bottom cream */
+/* Bottom Cream */
 .bottom-cream {
   position: absolute;
   left: 50%;
@@ -278,7 +245,6 @@ body {
   z-index: 8;
   animation: wobble 3.8s ease-in-out infinite;
 }
-
 .bottom-cream::after {
   content: "";
   position: absolute;
@@ -299,7 +265,7 @@ body {
   animation: drip 3.2s ease-in-out infinite alternate;
 }
 
-/* 🎀 Cute, subtle wobble animation for soft cartoon look */
+/* Animations */
 @keyframes wobble {
   0%, 100% { transform: translateX(-50%) rotate(0deg); }
   35% { transform: translateX(-50%) rotate(0.9deg); }
@@ -307,16 +273,12 @@ body {
   85% { transform: translateX(-50%) rotate(0.6deg); }
 }
 
-/* 🍯 Gentle drip bounce for frosting look */
 @keyframes drip {
   0% { transform: translateY(0); }
   100% { transform: translateY(4px); }
 }
 
-
-
-
-
+/* 🕯 Candles */
 .candles {
   position: absolute;
   left: 50%;
@@ -326,20 +288,24 @@ body {
   gap: 20px;
 }
 
-/* 🕯 Striped Candles (Candy Look) */
+/* 🎀 Striped Candles (pastel shades) */
 .candle {
   width: 12px;
   height: 40px;
-  background: repeating-linear-gradient(
-    45deg,
-    #ffb6c1 0px,
-    #ffb6c1 6px,
-    #fff 6px,
-    #fff 12px
-  );
   border-radius: 4px;
   position: relative;
-  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.7),
+              0 0 3px rgba(255, 192, 203, 0.5);
+}
+
+.candle:nth-child(1) {
+  background: repeating-linear-gradient(45deg, #ffb6c1, #ffb6c1 6px, #fff 6px, #fff 12px);
+}
+.candle:nth-child(2) {
+  background: repeating-linear-gradient(45deg, #ffe4ec, #ffe4ec 6px, #fff 6px, #fff 12px);
+}
+.candle:nth-child(3) {
+  background: repeating-linear-gradient(45deg, #ffd1d9, #ffd1d9 6px, #fff 6px, #fff 12px);
 }
 
 /* 🔥 Candle Flame */
@@ -371,37 +337,29 @@ body {
   color: #ff5c8d;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(255, 192, 203, 0.25);
+  transition: transform 0.2s ease;
 }
-#lightPlayBtn:hover { transform: translateY(-2px); }
-
+#lightPlayBtn:hover {
+  transform: translateY(-2px);
+}
 
 /* 🐰 Cute GIF Entrance */
 .cute-gif {
   position: absolute;
-  right: -250px; /* starts off-screen */
+  right: -250px;
   bottom: -10px;
-  width: 140px; /* adjust size if needed */
+  width: 140px;
   opacity: 0;
   animation: none;
   z-index: 5;
 }
 
 @keyframes slideInGif {
-  0% {
-    transform: translateX(0);
-    opacity: 0;
-  }
-  60% {
-    transform: translateX(-80px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-260px);
-    opacity: 1;
-  }
+  0% { transform: translateX(0); opacity: 0; }
+  60% { transform: translateX(-80px); opacity: 1; }
+  100% { transform: translateX(-260px); opacity: 1; }
 }
 
-/* 🩷 When animation starts */
 .cute-gif.active {
   animation: slideInGif 2.5s ease-out forwards;
 }
