@@ -37,14 +37,14 @@
         <div class="plate"></div>
       </div>
 
+      <!-- Cute GIF -->
+      <img src="cute.gif" alt="Cute Character" class="cute-gif" id="cuteGif">
+
       <!-- Birthday Message -->
       <div class="message" id="message">
         happy birthday bobo!
         <div id="subMessage" class="sub-message">I love you 🎀</div>
       </div>
-
-      <!-- Cute GIF BELOW message -->
-      <img src="cute.gif" alt="Cute Character" class="cute-gif" id="cuteGif">
 
       <!-- Button -->
       <button id="lightPlayBtn">💗 light the candles 💗</button>
@@ -54,7 +54,12 @@
   <!-- Confetti library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
-  <!-- Floating hearts -->
+  <!-- Audio -->
+  <audio id="birthdayAudio" preload="auto" loop>
+    <source src="happy-birthday-to-you-370804.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating hearts & strawberries -->
   <script>
     const heartsContainer = document.getElementById("hearts");
     const symbols = ["💗", "🍓", "🍰"];
@@ -69,11 +74,6 @@
       setTimeout(() => emoji.remove(), 10000);
     }, 600);
   </script>
-
-  <!-- Audio -->
-  <audio id="birthdayAudio" preload="auto" loop>
-    <source src="happy-birthday-to-you-370804.mp3" type="audio/mpeg">
-  </audio>
 
   <!-- Main Script -->
   <script src="script.js"></script>
