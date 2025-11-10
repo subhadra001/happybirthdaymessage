@@ -42,9 +42,11 @@ body {
   width: 200px;
   height: 180px;
   margin-bottom: 40px;
-  background: none;
+  background: transparent ;  /* ensures no white box appears */
+  box-shadow: none;                    /* prevents faint background bloom */
   transition: box-shadow 0.6s ease;
 }
+
 
 .layer {
   position: absolute;
@@ -73,7 +75,8 @@ body {
 
 
 .glow {
-  box-shadow: 0 0 40px rgba(255, 182, 193, 0.6);
+  box-shadow: 0 0 40px 15px rgba(255, 182, 193, 0.45);
+  background: transparent ; /* ensures no white background */
 }
 
 /* 🩶 Plate (now soft and translucent) */
