@@ -12,13 +12,25 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* horizontal centering */
+  justify-content: center;   /* vertical centering */
+  gap: 28px;                 /* space between cake, message, button */
+  height: 100vh;             /* fill viewport so vertical centering works */
+  box-sizing: border-box;
+  padding: 20px;
   text-align: center;
-  position: relative;
 }
 
+/* cake-wrapper participates in the flow (no absolute offsets) */
 .cake-wrapper {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin: 0;                 /* remove stray top/side margins */
+  padding: 0;
 }
 
 .message {
@@ -26,7 +38,7 @@ body {
   font-size: 2.8rem;
   text-shadow: 2px 2px 8px rgba(255, 182, 193, 0.6);
   margin-top: 20px;
-  font-family: "Pacifico", cursive;
+  font-family: "Great Vibes", "Pacifico", cursive;
   opacity: 0;
   transform: translateY(15px);
   transition: opacity 1.2s ease, transform 1.2s ease;
@@ -49,29 +61,20 @@ body {
 
 /* 🎀 Cake Layers (soft pastel look) */
 .layer {
-  position: absolute;
-  width: 200px;
-  height: 50px;
-  border-radius: 15px;
-  left: 0;
+  position: absolute; /* keep absolute for stacking, but cake centers as block */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 54px;
+  border-radius: 16px;
   border: 2px solid #ffd1dc;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.8);
 }
 
-.layer-top {
-  top: 0;
-  background: #ffe4ec;
-}
-
-.layer-middle {
-  top: 55px;
-  background: #ffd6e8;
-}
-
-.layer-bottom {
-  top: 110px;
-  background: #ffb6c1;
-}
+/* layer vertical positions */
+.layer-top  { top: 6px;  background: #ffe4ec; }
+.layer-middle{ top: 66px; background: #ffd6e8; }
+.layer-bottom{ top: 126px; background: #ffb6c1; }
 
 /* ✨ Glow effect — soft pink aura, no white patch 
 .glow {
@@ -82,22 +85,21 @@ body {
 /* 🍽 Plate — made translucent */
 .plate {
   position: absolute;
-  bottom: -20px;
-  width: 220px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -24px;
+  width: 240px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.15); /* almost transparent */
-  border-radius: 10px;
-  left: -10px;
-  box-shadow: 0 3px 6px rgba(255, 182, 193, 0.4);
-  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,0.12);
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(255,182,193,0.25);
 }
-
 
 .candles {
   position: absolute;
-  top: -40px;
   left: 50%;
   transform: translateX(-50%);
+  top: -38px;
   display: flex;
   gap: 20px;
 }
@@ -134,17 +136,11 @@ body {
 #lightPlayBtn {
   background-color: #ffd1dc;
   border: none;
-  padding: 12px 26px;
-  border-radius: 25px;
-  font-size: 1.2rem;
+  padding: 12px 30px;
+  border-radius: 28px;
+  font-size: 1.15rem;
   color: #ff5c8d;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 2px 2px 10px rgba(255, 192, 203, 0.6);
-  margin-top: 20px;
+  box-shadow: 0 8px 20px rgba(255, 192, 203, 0.25);
 }
-
-#lightPlayBtn:hover {
-  background-color: #ffe4ec;
-  transform: scale(1.05);
-}
+#lightPlayBtn:hover { transform: translateY(-2px); }
