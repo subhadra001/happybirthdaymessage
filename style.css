@@ -462,7 +462,7 @@ body {
 
 
 .cake.glow {
-  filter: brightness(1.8) saturate(1.3);
+  filter: brightness(0.3) saturate(0.5);
   transition: filter 1.2s ease-in-out;
 }
 
