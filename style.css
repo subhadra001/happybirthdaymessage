@@ -1,219 +1,248 @@
 body {
-  background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #cce7ff, #e6f7ff);
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
-  font-family: "Comic Sans MS", cursive;
-  text-align: center;
-}
-
-.container {
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
   position: relative;
 }
 
-/* 🎉 Birthday Message */
-#message {
-  font-size: 2.4rem;
-  color: #fff;
-  text-shadow: 2px 2px 10px rgba(255, 105, 180, 0.8);
-  opacity: 0;
-  transform: translateY(-40px);
-  transition: opacity 1s ease, transform 1s ease;
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
+/* ❤️🍓 Floating Up Animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(20px) rotate(15deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(-20px) rotate(-15deg);
+    opacity: 0;
+  }
 }
 
-#message .subtext {
-  display: block;
-  font-size: 1.2rem;
-  color: #ffeef6;
-  text-shadow: 1px 1px 6px rgba(255, 200, 220, 0.8);
+#hearts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  animation: floatUp linear forwards;
+  opacity: 0.9;
+  font-size: 20px;
+}
+
+.heart:nth-child(2n) { animation-duration: 7s; font-size: 22px; }
+.heart:nth-child(3n) { animation-duration: 9s; font-size: 18px; }
+.heart:nth-child(4n) { animation-duration: 11s; font-size: 26px; }
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* ensure cake & message appear above confetti */
+}
+
+/* cake-wrapper */
+.cake-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🎀 Updated message color */
+.message {
+  color: #b3003c; /* dark cherry red */
+  font-size: 2.8rem;
+  text-shadow: 2px 2px 8px rgba(179, 0, 60, 0.4);
+  margin-top: 20px;
+  font-family: 'Great Vibes', cursive;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .show-message {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: translateY(0);
 }
 
-/* 🎂 Cake */
+/* Cake */
 .cake {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: float 3s ease-in-out infinite;
-  margin-top: 80px;
+  width: 200px;
+  height: 180px;
+  margin-bottom: 40px;
+  background: none;
+  transition: box-shadow 0.6s ease;
 }
 
-/* ✨ Cake Layers with horizontal stripes */
 .layer {
-  width: 200px;
-  height: 60px;
-  border-radius: 12px;
-  position: relative;
-  margin: 4px 0;
-  background: repeating-linear-gradient(
-    to right,
-    #ffd1d9,
-    #ffd1d9 10px,
-    #fff1f6 10px,
-    #fff1f6 20px
-  );
-  box-shadow: 0 4px 10px rgba(255, 150, 180, 0.2);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 54px;
+  border-radius: 16px;
+  border: 2px solid #ffd1dc;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.8);
 }
 
-/* Top, middle, and bottom tiers */
-.layer-top {
-  width: 160px;
-  height: 50px;
-  background: repeating-linear-gradient(
-    to right,
-    #ffe4ec,
-    #ffe4ec 10px,
-    #fff5f8 10px,
-    #fff5f8 20px
-  );
-  z-index: 5;
-}
+.layer-top { top: 6px; background: #ffe4ec; }
+.layer-middle { top: 66px; background: #ffd6e8; }
+.layer-bottom { top: 126px; background: #ffb6c1; }
 
-.layer-middle {
-  width: 200px;
-  height: 55px;
-  background: repeating-linear-gradient(
-    to right,
-    #ffd6e8,
-    #ffd6e8 10px,
-    #fff1f6 10px,
-    #fff1f6 20px
-  );
-  z-index: 4;
-}
-
-.layer-bottom {
-  width: 240px;
-  height: 60px;
-  background: repeating-linear-gradient(
-    to right,
-    #ffb6c1,
-    #ffb6c1 10px,
-    #ffe6ec 10px,
-    #ffe6ec 20px
-  );
-  z-index: 3;
-}
-
-/* 🍽️ Plate */
 .plate {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: -24px;
-  width: 260px;
+  width: 240px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255,255,255,0.12);
   border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(255, 182, 193, 0.25);
+  box-shadow: 0 3px 6px rgba(255,182,193,0.25);
 }
 
-/* 🕯️ Candles */
-.candles {
-  display: flex;
-  justify-content: center;
+/* 🧁 White Cream Layer */
+.cream {
   position: absolute;
-  top: -50px;
+  left: 50%;
+  top: -6px;
+  transform: translateX(-50%);
+  width: 230px;
+  height: 30px;
+  background: radial-gradient(circle at 50% 40%, #fff 40%, #f8f8f8 80%);
+  border-radius: 50% 50% 30% 30% / 50% 50% 30% 30%;
+  box-shadow: 0 3px 8px rgba(255, 192, 203, 0.3), inset 0 -2px 4px rgba(255, 182, 193, 0.2);
+  z-index: 3;
+}
+
+.cream::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: radial-gradient(circle at 20% 100%, #fff 30%, transparent 30%),
+              radial-gradient(circle at 40% 100%, #fff 30%, transparent 30%),
+              radial-gradient(circle at 60% 100%, #fff 30%, transparent 30%),
+              radial-gradient(circle at 80% 100%, #fff 30%, transparent 30%);
+  background-size: 25% 100%;
+  background-repeat: repeat-x;
+  border-radius: 0 0 10px 10px;
+  opacity: 0.95;
+}
+
+/* 🧁 Creamy Fillings Between Layers */
+.middle-cream, .bottom-cream {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 210px;
+  height: 14px;
+  background: linear-gradient(180deg, #fff5f7, #ffe4ec);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(255, 182, 193, 0.4);
+  z-index: 2;
+}
+
+/* positions between the cake layers */
+.middle-cream { top: 58px; }   /* between top and middle layer */
+.bottom-cream { top: 118px; }  /* between middle and bottom layer */
+
+.middle-cream::after, .bottom-cream::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 8px;
+  background: radial-gradient(circle at 20% 100%, #fff 30%, transparent 30%),
+              radial-gradient(circle at 40% 100%, #fff 30%, transparent 30%),
+              radial-gradient(circle at 60% 100%, #fff 30%, transparent 30%),
+              radial-gradient(circle at 80% 100%, #fff 30%, transparent 30%);
+  background-size: 25% 100%;
+  background-repeat: repeat-x;
+  opacity: 0.9;
+}
+
+
+
+.candles {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -38px;
+  display: flex;
   gap: 20px;
 }
 
 .candle {
-  width: 10px;
+  width: 12px;
   height: 40px;
-  background: repeating-linear-gradient(
-    to bottom,
-    #ff85a2,
-    #ff85a2 5px,
-    #fff 5px,
-    #fff 10px
-  );
+  background: #ffd1d9;
   border-radius: 4px;
   position: relative;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.7);
 }
 
-/* 🔥 Flame */
-.candle::before {
+/* 🔥 Candle Flame */
+.candle.lit::after {
   content: "";
   position: absolute;
-  top: -15px;
+  top: -12px;
   left: 50%;
   width: 10px;
   height: 15px;
-  background: radial-gradient(circle, #ffeb3b, #ff9800);
+  background: radial-gradient(circle, #fffacd, #ffb347, #ff8c00);
   border-radius: 50%;
-  transform: translateX(-50%) scale(0);
-  transition: transform 0.3s ease;
+  transform: translateX(-50%);
+  animation: flicker 0.25s infinite alternate;
 }
 
-.candle.lit::before {
-  transform: translateX(-50%) scale(1);
-  animation: flicker 0.2s infinite alternate;
-}
-
-/* ✨ Glow when candles lit */
-.cake.glow {
-  filter: drop-shadow(0 0 25px rgba(255, 160, 180, 0.8));
-}
-
-/* 💖 Button */
-#lightPlayBtn {
-  background: linear-gradient(135deg, #ff99ac, #ffb6c1);
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  padding: 12px 30px;
-  border-radius: 20px;
-  margin-top: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(255, 150, 180, 0.3);
-  transition: all 0.3s ease;
-}
-
-#lightPlayBtn:hover {
-  background: linear-gradient(135deg, #ffb6c1, #ff99ac);
-  transform: scale(1.05);
-}
-
-#lightPlayBtn.fade-out {
-  opacity: 0;
-  transform: scale(0.9);
-  pointer-events: none;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-/* 🐰 Cute GIF */
-#cuteGif {
-  width: 220px;
-  margin-top: 20px;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 1s ease;
-}
-
-#cuteGif.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* 🔥 Flicker & Float */
 @keyframes flicker {
-  0% { transform: translateX(-50%) scale(1); opacity: 1; }
-  100% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+  0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+  100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+/* 💖 Light & Play Button */
+#lightPlayBtn {
+  background-color: #ffd1dc;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 28px;
+  font-size: 1.15rem;
+  color: #ff5c8d;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 192, 203, 0.25);
 }
+#lightPlayBtn:hover { transform: translateY(-2px); }  
