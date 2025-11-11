@@ -14,20 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showMessage() {
+  const message = document.getElementById("message");
   const subMessage = document.getElementById("subMessage");
   const loveNote = document.getElementById("loveNote");
 
-  message.classList.add("show-message");
-
-  // Reveal “to the world's best boyfriend 💌”
-  setTimeout(() => {
-    subMessage.classList.add("show-sub");
-  }, 1200);
-
-  // Reveal “i love you 💖”
-  setTimeout(() => {
-    loveNote.classList.add("show-sub");
-  }, 2400);
+  setTimeout(() => subMessage.classList.add("show-sub-message"), 600); // first line
+  setTimeout(() => message.classList.add("show-message"), 1500); // Happy Birthday
+  setTimeout(() => loveNote.classList.add("show-sub-message"), 2500); // I love you
 }
 
 
