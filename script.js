@@ -42,6 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => candle.classList.add("lit"), i * 200);
     });
 
+    // 🐰 Show cute GIF entrance
+const cuteGif = document.getElementById("cuteGif");
+setTimeout(() => {
+  cuteGif.classList.add("active");
+}, 800);
+
+
     // Play music
     setTimeout(() => {
       audio.currentTime = 0;
