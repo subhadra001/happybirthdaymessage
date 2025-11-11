@@ -218,6 +218,58 @@ body {
   animation: wobble 3.8s ease-in-out infinite;
 }
 
+/* 🧁 Enhanced Cream Layers with Scalloped Edge */
+.cream, .middle-cream, .bottom-cream {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgba(255, 182, 193, 0.45),
+              inset 0 2px 5px rgba(255, 255, 255, 0.95);
+  background-repeat: repeat-x;
+  background-size: 40px 20px; /* controls spacing of scallops */
+}
+
+/* Top Cream Layer */
+.cream {
+  top: -14px;
+  width: 160px;
+  height: 32px;
+  background-image:
+    radial-gradient(circle at 20px 20px, #fffafc 14px, transparent 15px),
+    linear-gradient(180deg, #fffafc 0%, #ffe8f0 100%);
+  background-blend-mode: lighten;
+  border-radius: 50% 50% 40% 40%;
+  animation: wobble 2.8s ease-in-out infinite;
+}
+
+/* Middle Cream Layer */
+.middle-cream {
+  top: 52px;
+  width: 200px;
+  height: 18px;
+  background-image:
+    radial-gradient(circle at 20px 20px, #fff6fa 12px, transparent 13px),
+    linear-gradient(180deg, #fff6fa 0%, #ffe4ec 100%);
+  background-blend-mode: lighten;
+  border-radius: 50% 50% 40% 40%;
+  animation: wobble 3.4s ease-in-out infinite;
+}
+
+/* Bottom Cream Layer */
+.bottom-cream {
+  top: 117px;
+  width: 240px;
+  height: 20px;
+  background-image:
+    radial-gradient(circle at 20px 20px, #fff7fa 12px, transparent 13px),
+    linear-gradient(180deg, #fff7fa 0%, #ffdbe7 100%);
+  background-blend-mode: lighten;
+  border-radius: 50% 50% 40% 40%;
+  animation: wobble 3.8s ease-in-out infinite;
+}
+
+
 /* 🕯 Candles */
 .candles {
   position: absolute;
