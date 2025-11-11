@@ -90,7 +90,7 @@ body {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 1.2s ease, transform 1.2s ease;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Great Vibes', cursive;
 }
 
 .sub-message {
