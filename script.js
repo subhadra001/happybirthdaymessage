@@ -46,11 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 🐰 Show cute GIF entrance
-const cuteGif = document.getElementById("cuteGif");
-setTimeout(() => {
-  cuteGif.classList.add("active");
-}, 800);
-
+    const cuteGif = document.getElementById("cuteGif");
+    setTimeout(() => {
+      cuteGif.classList.add("active");
+    }, 800);
 
     // Play music
     setTimeout(() => {
@@ -75,6 +74,12 @@ setTimeout(() => {
 
   // 💗 Button click
   lightBtn.addEventListener("click", () => {
+    // ✨ Fade out and hide the button
+    lightBtn.classList.add("fade-out");
+    setTimeout(() => {
+      lightBtn.style.display = "none";
+    }, 600); // match CSS transition
+
     enableAudio();
     if (!cake.classList.contains("glow")) {
       lightCandles();
@@ -89,3 +94,4 @@ setTimeout(() => {
     }
   });
 });
+
