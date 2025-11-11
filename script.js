@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const candles = document.querySelectorAll(".candle");
   const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
-  document.querySelector('.cute-gif').classList.add('active');
+  
 
 
   // 🩷 Allow Chrome to unlock audio
@@ -95,6 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
       startHeartRain(); // Start the falling heart confetti
     }
   });
+
+  document.querySelector('.cute-gif').classList.add('active');
 
   // Prevent music pause
   document.addEventListener("click", (e) => {
