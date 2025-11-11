@@ -463,42 +463,9 @@ body {
 }
 
 
-/* Arrange cake, gif, and texts in proper order */
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* spacing between cake, gif, texts */
-  overflow: hidden;
-}
 
-/* Ensure cute.gif sits below cake but above background */
-.cute-gif {
-  order: 2;
-  position: relative;
-  margin-top: 12px;
-  opacity: 0;
-  animation: slideInFromRight 2.5s ease-out forwards;
-}
 
-/* Move texts slightly upward so they don’t sit too low */
-.container {
-  order: 3;
-  position: relative;
-  top: -15px; /* lifts texts slightly */
-  text-align: center;
-}
 
-/* Raise Light & Play button */
-#lightPlayBtn {
-  bottom: 15%; /* higher placement */
-}
-
-/* Optional: lift floating hearts slightly */
-#hearts {
-  z-index: 0;
-}
 
 
 
