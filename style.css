@@ -344,11 +344,17 @@ body {
   color: #ff5c8d;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(255, 192, 203, 0.25);
-  transition: transform 0.2s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 #lightPlayBtn:hover {
   transform: translateY(-2px);
 }
+#lightPlayBtn.fade-out {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
 
 
 
