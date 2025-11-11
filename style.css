@@ -90,25 +90,22 @@ body {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 1.2s ease, transform 1.2s ease;
-  margin-top: 10px;
   position: relative;
-  z-index: 6; /* make sure text is above gif */
+  z-index: 6;
 }
 
 .sub-message {
-  font-size: 1.8rem;
-  margin-top: -10px;
+  font-size: 1.6rem;
   color: #d46a91;
 }
 
 .love-note {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: #ff4f90;
   text-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
-  margin-top: 6px;
 }
 
-/* ✨ Glow-in Heartbeat Animation */
+/* ✨ Text Glow Animation */
 @keyframes textGlow {
   0%, 100% {
     text-shadow:
@@ -126,7 +123,6 @@ body {
   }
 }
 
-/* 🌟 When message/sub-message/love-note appear */
 .show-sub,
 .show-sub-message {
   opacity: 1;
@@ -134,13 +130,6 @@ body {
   animation: textGlow 2.6s ease-in-out infinite;
 }
 
-/* 🧸 Cute GIF placement */
-.cute-gif {
-  position: absolute;
-  right: -180px;
-  bottom: 80px; /* lowered a bit to avoid overlapping text */
-  z-index: 0; /* keep it below the text */
-}
 
 /* 🎂 Cake Floating Animation */
 .cake {
@@ -401,16 +390,15 @@ body {
   pointer-events: none;
 }
 
-/* 🐰 Cute GIF Entrance */
+/* 🐻 Cute GIF Slide-In Entrance */
 .cute-gif {
   position: absolute;
-  right: -220px;
-  bottom: 120px;
+  right: -260px; /* start off-screen */
+  bottom: 80px;
   width: 180px;
   max-width: 30vw;
   opacity: 0;
-  animation: none;
-  z-index: 6;
+  z-index: 3; /* below text but above cake */
 }
 
 @keyframes slideInGif {
@@ -418,16 +406,10 @@ body {
     transform: translateX(0);
     opacity: 0;
   }
-  60% {
-    transform: translateX(-80px);
-    opacity: 1;
-  }
-  80% {
-    transform: translateX(-200px);
-    opacity: 1;
-  }
+  60% { transform: translateX(-80px); opacity: 1; } 
+  80% { transform: translateX(-200px); opacity: 1;
   100% {
-    transform: translateX(-260px);
+    transform: translateX(-200px);
     opacity: 1;
   }
 }
@@ -436,20 +418,13 @@ body {
   animation: slideInGif 2.5s ease-out forwards;
 }
 
-/* 📱 Responsive Adjustments */
+/* 📱 Responsive */
 @media (max-width: 600px) {
-  .message {
-    font-size: 2.2rem;
-  }
-  .sub-message {
-    font-size: 1.3rem;
-  }
   .cute-gif {
-    right: -140px;
-    bottom: 100px;
-    width: 100px;
+    right: -180px;
+    bottom: 60px;
+    width: 110px;
   }
-
 }
 
 /* 🎀 Gentle Wobble Animation for Cream Layers */
