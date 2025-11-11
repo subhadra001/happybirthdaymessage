@@ -53,7 +53,6 @@ body {
 .heart:nth-child(4n) { animation-duration: 11s; font-size: 26px; color: #ffadc9; }
 
 /* 🌷 Center Container */
-/* 🌷 Center Container */
 .container {
   display: flex;
   flex-direction: column;
@@ -66,8 +65,6 @@ body {
   position: relative;
   z-index: 2;
 }
-
-
 
 /* 🎀 Main Birthday Message */
 .message {
@@ -155,18 +152,32 @@ body {
 .layer::before {
   content: "";
   position: absolute;
-  bottom: -1px; /* slightly overlaps to blend with cream */
+  bottom: 0px;
   left: 0;
   width: 100%;
   height: 20px;
-  background: radial-gradient(circle at 10px 10px, #fff 10px, transparent 11px);
+  background: radial-gradient(circle at 10px 20px, #fff 10px, transparent 11px);
   background-size: 20px 20px;
   background-repeat: repeat-x;
-  z-index: 5;
+  z-index: 3;
   pointer-events: none;
+  /* transform: scaleY(-1);  🔄 flips the scallops upside down */
 }
 
 
+
+
+/* 🎂 Keep cream layers visible */
+.cream, .middle-cream, .bottom-cream {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.4),
+              inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  opacity: 1; /* make them fully visible */
+  z-index: 4; /* above the cake body */
+}
 
 
 /* Top Tier */
@@ -209,22 +220,32 @@ body {
   box-shadow: 0 3px 6px rgba(255, 182, 193, 0.3);
 }
 
-
-/* 🧁 Perfectly aligned Cream Layers */
+/* 🧁 Cream Layers */
 .cream, .middle-cream, .bottom-cream {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 50% 50% 40% 40%;
+  border-radius: 20px;
   box-shadow: 0 2px 6px rgba(255, 182, 193, 0.4),
               inset 0 2px 4px rgba(255, 255, 255, 0.9);
-  z-index: 6;
 }
 
+/* 🧁 Cream Layers (more visible & vibrant) 
+.cream, .middle-cream, .bottom-cream {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  box-shadow: 
+    0 2px 6px rgba(255, 182, 193, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 1);
+  opacity: 1;
+  z-index: 4;
+} */
 
 /* Top Cream */
 .cream {
-  top: -10px;
+  top: -12px;
   width: 160px;
   height: 32px;
   background: linear-gradient(180deg, #ffffff 0%, #ffe6ee 100%);
@@ -234,9 +255,9 @@ body {
 
 
 .middle-cream {
-  top: 50px;
+  top: 52px;
   width: 200px;
-  height: 24px;
+  height: 22px;
   background: linear-gradient(
     180deg,
     rgba(255, 249, 251, 0.9) 0%,   /* upper highlight */
@@ -251,9 +272,9 @@ body {
 
 /* Bottom Cream */
 .bottom-cream {
-  top: 114px;
+  top: 117px;
   width: 240px;
-  height: 22px;
+  height: 20px;
   background: linear-gradient(
     180deg,
     rgba(255, 245, 249, 0.9) 0%,   /* soft white top */
@@ -418,7 +439,6 @@ body {
   animation: creamWobble 3.9s ease-in-out infinite;
   animation-delay: 0.6s;
 }
-
 
 
 
