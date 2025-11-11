@@ -361,50 +361,47 @@ body {
 /* 🐰 Cute GIF Entrance */
 .cute-gif {
   position: absolute;
-  right: -250px;
-  bottom: 130px;
-  width: 140px;
+  right: -220px;           /* adjusted for better placement */
+  bottom: 120px;
+  width: 180px;            /* increased size */
+  max-width: 30vw;         /* responsive scaling for phones */
   opacity: 0;
   animation: none;
-  z-index: 5;
+  z-index: 6;
 }
 
-/* 🩷 Entrance animation */
+/* Entrance animation — slides in smoothly */
 @keyframes slideInGif {
-  0% { transform: translateX(0); opacity: 0; }
-  60% { transform: translateX(-80px); opacity: 1; }
-  100% { transform: translateX(-260px); opacity: 1; }
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-80px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-200px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-260px);
+    opacity: 1;
+  }
 }
 
 .cute-gif.active {
   animation: slideInGif 2.5s ease-out forwards;
 }
 
-/* 📱 Mobile-friendly adjustments */
-@media (max-width: 1024px) {
-  .cute-gif {
-    right: -180px;   /* closer to cake */
-    bottom: 160px;   /* lifted higher */
-    width: 120px;    /* slightly smaller */
-  }
-}
-
-@media (max-width: 768px) {
+/* 📱 Responsive tweaks for smaller screens */
+@media (max-width: 600px) {
   .cute-gif {
     right: -140px;
-    bottom: 200px;   /* lifted more for phone screens */
-    width: 100px;
+    bottom: 100px;
+    width: 130px;
   }
 }
-
-@media (max-width: 480px) {
-  .cute-gif {
-    right: -120px;
-    bottom: 220px;   /* even higher so it stays visible */
-    width: 90px;
-  }
-}
-
 
 
 
