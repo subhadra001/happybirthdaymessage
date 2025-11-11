@@ -151,7 +151,7 @@ body {
 .layer-top {
   width: 160px;
   height: 50px;
-  background: radial-gradient(circle at 20px 0, #fff 14px, transparent 15px),
+  background: 
     linear-gradient(to bottom, #ffe4ec, #ffcde1);
   z-index: 5;
 }
@@ -160,7 +160,7 @@ body {
 .layer-middle {
   width: 200px;
   height: 55px;
-  background: radial-gradient(circle at 20px 0, #fff 14px, transparent 15px),
+  background: 
     linear-gradient(to bottom, #ffd6e8, #ffbedc);
   z-index: 4;
 }
@@ -169,7 +169,7 @@ body {
 .layer-bottom {
   width: 240px;
   height: 60px;
-  background:  radial-gradient(circle at 20px 0, #fff 14px, transparent 15px),
+  background:  
     linear-gradient(to bottom, #ffb6c1, #ffa7b9);
   z-index: 3;
 }
@@ -342,6 +342,22 @@ body {
     width: 100px;
   }
 
+}
+
+
+/* 🍓 Add scalloped white icing circles to cake layers */
+.layer::before {
+  content: "";
+  position: absolute;
+  top: -10px; /* adjust how high the scallops sit */
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: radial-gradient(circle at 10px 10px, #fff 10px, transparent 11px);
+  background-size: 30px 20px;
+  background-repeat: repeat-x;
+  z-index: 3; /* sits above the layer color */
+  pointer-events: none;
 }
 
 
