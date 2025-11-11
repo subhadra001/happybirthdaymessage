@@ -86,34 +86,32 @@ body {
 }
  
 /* 🌸 Birthday Sub-Messages */
-.sub-message {
+.sub-message, .love-note {
   font-family: "Great Vibes", cursive;
-  font-size: 28px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
   color: #d46a91;
-  margin-top: -8px;
-  animation: fadeInUp 2.5s ease-in-out;
+}
+
+.sub-message {
+  font-size: 1.8rem;
+  margin-top: -10px;
+  color: #d46a91;
 }
 
 .love-note {
-  font-family: "Great Vibes", cursive;
-  font-size: 26px;
+  font-size: 1.7rem;
+  margin-top: -8px;
   color: #e06fa9;
-  margin-top: -5px;
-  animation: fadeInUp 3s ease-in-out;
-  opacity: 0.9;
 }
 
-/* Soft floating fade-in animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* When visible */
+.show-sub {
+  opacity: 1;
+  transform: translateY(0);
 }
+
 
 
 /* 🎂 Cake Floating Animation */
