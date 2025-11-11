@@ -263,14 +263,12 @@ body {
     rgba(255, 249, 251, 0.9) 0%,   /* upper highlight */
     rgba(248, 226, 237, 0.75) 100% /* lower fade */
   );
-  border-radius: 50% 50% 40% 40%;
+  border-radius: 50% 50% 30% 40%;
   z-index: 6;
   opacity: 0.89; /* full opacity so shadows remain strong */
   animation: creamWobble 3.0s ease-in-out infinite;
   animation-delay: 0.3s;
 }
-
-
 
 /* Bottom Cream */
 .bottom-cream {
@@ -282,7 +280,7 @@ body {
     rgba(255, 245, 249, 0.9) 0%,   /* soft white top */
     rgba(249, 235, 240, 0.85) 100% /* gentle fade below */
   );
-  border-radius: 50% 50% 40% 40%;
+  border-radius: 50% 50% 30% 40%;
   z-index: 6;
   opacity: 0.85; /* gives a creamy see-through look */
   animation: creamWobble 3.0s ease-in-out infinite;
