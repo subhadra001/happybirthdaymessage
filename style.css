@@ -230,7 +230,7 @@ body {
               inset 0 2px 4px rgba(255, 255, 255, 0.9);
 }
 
-/* 🧁 Cream Layers (more visible & vibrant) */
+/* 🧁 Cream Layers (more visible & vibrant) 
 .cream, .middle-cream, .bottom-cream {
   position: absolute;
   left: 50%;
@@ -241,7 +241,7 @@ body {
     inset 0 2px 4px rgba(255, 255, 255, 1);
   opacity: 1;
   z-index: 4;
-}
+} */
 
 /* Top Cream */
 .cream {
