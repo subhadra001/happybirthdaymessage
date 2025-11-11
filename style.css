@@ -54,17 +54,18 @@ body {
 
 /* 🌷 Center Container */
 .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* prevents vertical shift */
   gap: 28px;
-  height: 100vh;
-  padding-top: 100px; /* keeps visual center */
   text-align: center;
-  position: relative;
   z-index: 2;
 }
+
 
 
 /* 🎀 Main Birthday Message */
@@ -88,7 +89,7 @@ body {
 .sub-message {
   color: #D60000;
   font-size: 1.4rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', cursive;
   margin-top: 8px;
   opacity: 0;
   transform: translateY(10px);
