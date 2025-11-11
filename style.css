@@ -86,12 +86,14 @@ body {
 }
  
 /* 🌸 Birthday Sub-Messages */
-.sub-message, .love-note {
-  font-family: "Great Vibes", cursive;
+.sub-message,
+.love-note {
+  color: #d6005d;
+  font-family: 'Poppins', sans-serif;
   opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 1.5s ease, transform 1.5s ease;
-  color: #d46a91;
+  transform: translateY(10px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  margin-top: 10px;
 }
 
 .sub-message {
@@ -112,7 +114,23 @@ body {
   transform: translateY(0);
 }
 
-
+/* ✨ Glow-in Heartbeat Animation */
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 6px rgba(255, 192, 203, 0.6),
+      0 0 12px rgba(255, 105, 180, 0.5),
+      0 0 18px rgba(255, 182, 193, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 192, 203, 0.9),
+      0 0 18px rgba(255, 105, 180, 0.8),
+      0 0 28px rgba(255, 182, 193, 0.7);
+    transform: scale(1.03);
+  }
+}
 
 /* 🎂 Cake Floating Animation */
 .cake {
@@ -453,6 +471,34 @@ body {
 .bottom-cream {
   animation: creamWobble 3.9s ease-in-out infinite;
   animation-delay: 0.6s;
+}
+
+/* 🌟 Messages reveal with glow */
+.show-sub,
+.show-sub-message {
+  opacity: 1;
+  transform: translateY(0);
+  animation: textGlow 2.6s ease-in-out infinite;
+}
+
+/* 💞 Love note pulse */
+.love-note {
+  font-size: 1.6rem;
+  color: #ff4f90;
+  text-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+  margin-top: 6px;
+}
+
+/* 🧸 Keep gif behind texts */
+.cute-gif {
+  position: absolute;
+  right: -180px;
+  bottom: 100px;
+  z-index: 1; /* behind */
+}
+
+.container {
+  z-index: 5; /* text above everything */
 }
 
 
