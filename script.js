@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   message.classList.add("show-message");
 
-  // First sub-message
+  // Reveal “to the world's best boyfriend 💌”
   setTimeout(() => {
     subMessage.classList.add("show-sub");
   }, 1200);
 
-  // Second "I love you" message
+  // Reveal “i love you 💖”
   setTimeout(() => {
     loveNote.classList.add("show-sub");
   }, 2400);
