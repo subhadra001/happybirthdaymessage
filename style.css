@@ -63,18 +63,16 @@ body {
   align-items: center;
   gap: 28px;
   text-align: center;
-  z-index: 2;
+  z-index: 5; /* keep above cake + gif */
 }
-
-
 
 /* 🎀 Main Birthday Message */
 .message {
   color: #b3003c;
   font-size: 2.8rem;
+  font-family: 'Great Vibes', cursive;
   text-shadow: 2px 2px 8px rgba(179, 0, 60, 0.4);
   margin-top: 20px;
-  font-family: 'Great Vibes', cursive;
   opacity: 0;
   transform: translateY(15px);
   transition: opacity 1.2s ease, transform 1.2s ease;
@@ -84,16 +82,17 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
- 
+
 /* 🌸 Birthday Sub-Messages */
 .sub-message,
 .love-note {
-  color: #d6005d;
   font-family: 'Poppins', sans-serif;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 1.2s ease, transform 1.2s ease;
   margin-top: 10px;
+  position: relative;
+  z-index: 6; /* make sure text is above gif */
 }
 
 .sub-message {
@@ -103,15 +102,10 @@ body {
 }
 
 .love-note {
-  font-size: 1.7rem;
-  margin-top: -8px;
-  color: #e06fa9;
-}
-
-/* When visible */
-.show-sub {
-  opacity: 1;
-  transform: translateY(0);
+  font-size: 1.6rem;
+  color: #ff4f90;
+  text-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+  margin-top: 6px;
 }
 
 /* ✨ Glow-in Heartbeat Animation */
@@ -130,6 +124,22 @@ body {
       0 0 28px rgba(255, 182, 193, 0.7);
     transform: scale(1.03);
   }
+}
+
+/* 🌟 When message/sub-message/love-note appear */
+.show-sub,
+.show-sub-message {
+  opacity: 1;
+  transform: translateY(0);
+  animation: textGlow 2.6s ease-in-out infinite;
+}
+
+/* 🧸 Cute GIF placement */
+.cute-gif {
+  position: absolute;
+  right: -180px;
+  bottom: 80px; /* lowered a bit to avoid overlapping text */
+  z-index: 0; /* keep it below the text */
 }
 
 /* 🎂 Cake Floating Animation */
@@ -471,34 +481,6 @@ body {
 .bottom-cream {
   animation: creamWobble 3.9s ease-in-out infinite;
   animation-delay: 0.6s;
-}
-
-/* 🌟 Messages reveal with glow */
-.show-sub,
-.show-sub-message {
-  opacity: 1;
-  transform: translateY(0);
-  animation: textGlow 2.6s ease-in-out infinite;
-}
-
-/* 💞 Love note pulse */
-.love-note {
-  font-size: 1.6rem;
-  color: #ff4f90;
-  text-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
-  margin-top: 6px;
-}
-
-/* 🧸 Keep gif behind texts */
-.cute-gif {
-  position: absolute;
-  right: -180px;
-  bottom: 100px;
-  z-index: 1; /* behind */
-}
-
-.container {
-  z-index: 5; /* text above everything */
 }
 
 
