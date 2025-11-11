@@ -246,3 +246,35 @@ body {
   box-shadow: 0 8px 20px rgba(255, 192, 203, 0.25);
 }
 #lightPlayBtn:hover { transform: translateY(-2px); }  
+
+
+/* 🐰 Cute GIF Entrance */
+.cute-gif {
+  position: absolute;
+  right: -250px; /* starts off-screen */
+  bottom: -10px;
+  width: 140px; /* adjust size if needed */
+  opacity: 0;
+  animation: none;
+  z-index: 5;
+}
+
+@keyframes slideInGif {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-80px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-260px);
+    opacity: 1;
+  }
+}
+
+/* 🩷 When animation starts */
+.cute-gif.active {
+  animation: slideInGif 2.5s ease-out forwards;
+}
