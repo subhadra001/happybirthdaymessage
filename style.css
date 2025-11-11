@@ -258,7 +258,7 @@ body {
   top: 52px;
   width: 200px;
   height: 22px;
-  background: linear-gradient(180deg, #fff9fb 0%, #ffe6ee 100%);
+  background: linear-gradient(180deg, #fff9fb 0%, #F8E2ED 100%);
   border-radius: 50% 50% 40% 40%;
   z-index: 6; /* ensure it's above the middle layer */
   opacity: 1;
@@ -272,7 +272,7 @@ body {
   top: 117px;
   width: 240px;
   height: 20px;
-  background: linear-gradient(180deg, #fff5f9 0%, #ffe6ee 100%);
+  background: linear-gradient(180deg, #fff5f9 0%, #F9EBF0 100%);
   animation: wobble 3.0s ease-in-out infinite;
 }
 
