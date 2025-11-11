@@ -403,7 +403,7 @@ body {
 }
 
 
-@keyframes slideInGif {
+@keyframes slideInFromRight  {
   0% {
     transform: translateX(0);
     opacity: 0;
