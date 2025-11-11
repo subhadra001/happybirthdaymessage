@@ -424,7 +424,7 @@ body {
 
 
 .cute-gif.active {
-  animation: slideInGif 2.5s ease-out forwards;
+  animation: slideInFromRight 2.5s ease-out forwards;
 }
 
 /* 📱 Mobile-friendly */
