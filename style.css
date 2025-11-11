@@ -85,8 +85,8 @@ body {
 
 /* 🌸 Sub-message Styling */
 .sub-message {
-  color: #ff5c8d;
-  font-size: 1.6rem;
+  color: #D60000;
+  font-size: 1.4rem;
   font-family: 'Poppins', sans-serif;
   margin-top: 8px;
   opacity: 0;
@@ -334,7 +334,7 @@ body {
   .cute-gif {
     right: -140px;
     bottom: 100px;
-    width: 130px;
+    width: 100px;
   }
 }
 
