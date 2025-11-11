@@ -54,17 +54,18 @@ body {
 
 /* 🌷 Center Container */
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start; /* prevent re-centering */
   gap: 28px;
+  height: 100vh;
+  padding-top: 100px; /* adjust to visually center */
   text-align: center;
+  position: relative;
   z-index: 2;
 }
+
 
 
 /* 🎀 Main Birthday Message */
