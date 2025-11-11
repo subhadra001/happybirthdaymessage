@@ -53,14 +53,15 @@ body {
 .heart:nth-child(4n) { animation-duration: 11s; font-size: 26px; color: #ffadc9; }
 
 /* 🌷 Center Container */
+/* 🌷 Center Container */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* prevent re-centering */
+  justify-content: center;
   gap: 28px;
   height: 100vh;
-  padding-top: 100px; /* adjust to visually center */
+  padding: 20px;
   text-align: center;
   position: relative;
   z-index: 2;
