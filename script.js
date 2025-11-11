@@ -14,11 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showMessage() {
+  const subMessage = document.getElementById("subMessage");
+  const loveNote = document.getElementById("loveNote");
+
   message.classList.add("show-message");
+
+  // First sub-message
   setTimeout(() => {
-    document.getElementById("subMessage").classList.add("show-sub-message");
-  }, 1000); // appears 1 second later for a nice reveal
+    subMessage.classList.add("show-sub");
+  }, 1200);
+
+  // Second "I love you" message
+  setTimeout(() => {
+    loveNote.classList.add("show-sub");
+  }, 2400);
 }
+
 
   // 💖 Constant falling heart confetti
   function startHeartRain() {
