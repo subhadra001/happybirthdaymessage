@@ -200,19 +200,6 @@ body {
 
 
 
-/* 🎂 Keep cream layers visible */
-.cream, .middle-cream, .bottom-cream {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 20px;
-  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.4),
-              inset 0 2px 4px rgba(255, 255, 255, 0.9);
-  opacity: 1; /* make them fully visible */
-  z-index: 4; /* above the cake body */
-}
-
-
 /* Top Tier */
 .layer-top {
   width: 160px;
@@ -253,16 +240,6 @@ body {
   box-shadow: 0 3px 6px rgba(255, 182, 193, 0.3);
 }
 
-/* 🧁 Cream Layers
-.cream, .middle-cream, .bottom-cream {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 20px;
-  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.4),
-              inset 0 2px 4px rgba(255, 255, 255, 0.9);
-}
-*/
 
 /* 🧁 Cream Layers */
 .cream, .middle-cream, .bottom-cream {
