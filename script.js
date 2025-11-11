@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const candles = document.querySelectorAll(".candle");
   const message = document.getElementById("message");
   const audio = document.getElementById("birthdayAudio");
-  const cuteGif = document.getElementById("cuteGif");
 
+  // 🩷 Allow Chrome to unlock audio
   function enableAudio() {
     audio.play().then(() => {
       audio.pause();
@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     message.classList.add("show-message");
   }
 
+  // 💖 Constant falling heart confetti
   function startHeartRain() {
     if (typeof confetti === "function") {
       setInterval(() => {
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // 🎂 Light candles and burst confetti
   function lightCandles() {
     cake.classList.add("glow");
     showMessage();
@@ -40,13 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => candle.classList.add("lit"), i * 200);
     });
 
-    setTimeout(() => cuteGif.classList.add("active"), 800);
-
+    // Play music
     setTimeout(() => {
       audio.currentTime = 0;
       audio.play().catch(err => console.log("Audio play error:", err));
     }, 600);
 
+    // 💥 Confetti bursts 8 times
     if (typeof confetti === "function") {
       for (let i = 0; i < 8; i++) {
         setTimeout(() => {
@@ -59,20 +61,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }, i * 300);
       }
     }
-
-    startHeartRain();
-
-    // Hide the button after click
-    lightBtn.classList.add("fade-out");
   }
 
+  // 💗 Button click
   lightBtn.addEventListener("click", () => {
     enableAudio();
     if (!cake.classList.contains("glow")) {
       lightCandles();
+      startHeartRain(); // Start the falling heart confetti
+    }
+  });
+
+  // Prevent music pause
+  document.addEventListener("click", (e) => {
+    if (e.target.id !== "lightPlayBtn") {
+      if (audio.paused) audio.play().catch(() => {});
     }
   });
 });
-
-
-
