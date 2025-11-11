@@ -200,6 +200,19 @@ body {
 
 
 
+/* 🎂 Keep cream layers visible */
+.cream, .middle-cream, .bottom-cream {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.4),
+              inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  opacity: 1; /* make them fully visible */
+  z-index: 4; /* above the cake body */
+}
+
+
 /* Top Tier */
 .layer-top {
   width: 160px;
@@ -240,6 +253,16 @@ body {
   box-shadow: 0 3px 6px rgba(255, 182, 193, 0.3);
 }
 
+/* 🧁 Cream Layers
+.cream, .middle-cream, .bottom-cream {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.4),
+              inset 0 2px 4px rgba(255, 255, 255, 0.9);
+}
+*/
 
 /* 🧁 Cream Layers */
 .cream, .middle-cream, .bottom-cream {
@@ -349,10 +372,6 @@ body {
 
 /* ✨ Button Styling */
 #lightPlayBtn {
-  position: absolute;
-  bottom: 10%; /* raises it a little higher */
-  left: 50%;
-  transform: translateX(-50%);
   background-color: #ffd1dc;
   border: none;
   padding: 12px 30px;
@@ -362,10 +381,7 @@ body {
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(255, 192, 203, 0.25);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  z-index: 10; /* make sure it’s above the cake */
 }
-
-
 #lightPlayBtn:hover {
   transform: translateY(-2px);
 }
@@ -409,10 +425,8 @@ body {
 
 
 .cute-gif.active {
-  animation: slideInFromRight 2.5s ease-out forwards;
+  animation: slideInGif 2.5s ease-out forwards;
 }
-
-
 
 /* 📱 Mobile-friendly 
 @media (max-width: 600px) {
@@ -463,6 +477,14 @@ body {
 }
 
 
+.cake.glow {
+  filter: brightness(1.8) saturate(1.3);
+  transition: filter 1s ease;
+}
+
+
+
+  now?? 
 
 
 
