@@ -113,44 +113,26 @@ body {
   50% { transform: translateY(-6px); }
 }
 
-/* 🍰 Cake Layers */
+/* 🍰 Cake Layers with Scalloped Top Design */
 .layer {
-  border-radius: 12px;
   position: relative;
+  border-radius: 12px;
   margin: 4px 0;
   box-shadow: 0 4px 10px rgba(255, 150, 180, 0.2);
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.25),
-    rgba(255, 255, 255, 0.25) 4px,
-    transparent 4px,
-    transparent 8px
-  );
-}
-
-/* ✨ Frosting Texture */
-.layer::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.4) 6px,
-    transparent 6px,
-    transparent 12px
-  );
-  border-radius: 12px;
-  pointer-events: none;
-  z-index: 2;
-  mix-blend-mode: soft-light;
+  overflow: visible;
 }
 
 /* Top Tier */
 .layer-top {
   width: 160px;
   height: 50px;
-  background: linear-gradient(to bottom, #ffe4ec, #ffcde1);
+  background:
+    radial-gradient(circle at 20px 0, #fff 14px, transparent 15px),
+    linear-gradient(to bottom, #ffe4ec, #ffcde1);
+  background-repeat: repeat-x;
+  background-size: 40px 20px;
+  background-position: 0 0; /* circles at the top */
+  border-radius: 12px;
   z-index: 5;
 }
 
@@ -158,7 +140,13 @@ body {
 .layer-middle {
   width: 200px;
   height: 55px;
-  background: linear-gradient(to bottom, #ffd6e8, #ffbedc);
+  background:
+    radial-gradient(circle at 20px 0, #fff 14px, transparent 15px),
+    linear-gradient(to bottom, #ffd6e8, #ffbedc);
+  background-repeat: repeat-x;
+  background-size: 40px 20px;
+  background-position: 0 0;
+  border-radius: 12px;
   z-index: 4;
 }
 
@@ -166,7 +154,13 @@ body {
 .layer-bottom {
   width: 240px;
   height: 60px;
-  background: linear-gradient(to bottom, #ffb6c1, #ffa7b9);
+  background:
+    radial-gradient(circle at 20px 0, #fff 14px, transparent 15px),
+    linear-gradient(to bottom, #ffb6c1, #ffa7b9);
+  background-repeat: repeat-x;
+  background-size: 40px 20px;
+  background-position: 0 0;
+  border-radius: 12px;
   z-index: 3;
 }
 
@@ -215,62 +209,6 @@ body {
   width: 240px;
   height: 18px;
   background: linear-gradient(180deg, #fff7fa 0%, #ffdbe7 100%);
-  animation: wobble 3.8s ease-in-out infinite;
-}
-
-/* 🧁 Enhanced Cream Layers with Visible Scalloped Top circle design*/
-.cream, .middle-cream, .bottom-cream {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 20px;
-  box-shadow: 0 3px 8px rgba(255, 182, 193, 0.45),
-              inset 0 2px 5px rgba(255, 255, 255, 0.95);
-  background-repeat: repeat-x;
-  background-size: 40px 20px;
-  z-index: 10; /* ensures cream is above cake layers */
-  overflow: visible;
-}
-
-/* Top Cream Layer */
-.cream {
-  top: -14px;
-  width: 160px;
-  height: 32px;
-  background-image:
-    radial-gradient(circle at 20px 0, #fffafc 14px, transparent 15px),
-    linear-gradient(180deg, #fffafc 0%, #ffe8f0 100%);
-  background-blend-mode: lighten;
-  background-position: 0 100%; /* flips the scallops upward */
-  border-radius: 50% 50% 40% 40%;
-  animation: wobble 2.8s ease-in-out infinite;
-}
-
-/* Middle Cream Layer */
-.middle-cream {
-  top: 52px;
-  width: 200px;
-  height: 18px;
-  background-image:
-    radial-gradient(circle at 20px 0, #fff6fa 12px, transparent 13px),
-    linear-gradient(180deg, #fff6fa 0%, #ffe4ec 100%);
-  background-blend-mode: lighten;
-  background-position: 0 100%;
-  border-radius: 50% 50% 40% 40%;
-  animation: wobble 3.4s ease-in-out infinite;
-}
-
-/* Bottom Cream Layer */
-.bottom-cream {
-  top: 117px;
-  width: 240px;
-  height: 20px;
-  background-image:
-    radial-gradient(circle at 20px 0, #fff7fa 12px, transparent 13px),
-    linear-gradient(180deg, #fff7fa 0%, #ffdbe7 100%);
-  background-blend-mode: lighten;
-  background-position: 0 100%;
-  border-radius: 50% 50% 40% 40%;
   animation: wobble 3.8s ease-in-out infinite;
 }
 
